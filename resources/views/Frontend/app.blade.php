@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
-    <title> Tech People | Home</title>
+    <title> Tech People | @section('Home', 'Default')</title>
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="icon" type="image/x-icon" href="/assets/img/logo/pavicon.icon">
@@ -40,19 +40,19 @@
             <div class="container">
                 <div class="row">
                     <div class="col left">
-                        <a href="./index.html" class="logo">
+                        <a href="{{ route('home')}}" class="logo">
                             <img src="{{ asset("Frontend")}}/assets/img/logo/techpeople.png" alt="">
                         </a>
                     </div>
                     <div class="col main-nev">
                         <div class="nev">
                             <ul>
-                                <li><a href="./index.html" class="active-nav">Home</a></li>
-                                <li><a href="./about.html">About Us</a></li>
-                                <li><a href="/service.html">Services</a></li>
-                                <li><a href="./portfolio.html">Portfolio</a></li>
-                                <li><a href="./blog.html">Blogs</a></li>
-                                <li><a href="./contact.html">Contact Us</a></li> 
+                                <li><a href="{{ route('home')}}" class="active-nav">Home</a></li>
+                                <li><a href="{{ route('about')}}">About Us</a></li>
+                                <li><a href="{{ route('service')}}">Services</a></li>
+                                <li><a href="{{ route('portfolio')}}">Portfolio</a></li>
+                                <li><a href="{{ route('blog')}}">Blogs</a></li>
+                                <li><a href="{{ route('contact')}}">Contact Us</a></li> 
                                 <div class="header-btn">
                                     <a onclick="showRequestForm()">Get Started</a>
                                 </div>   
@@ -189,7 +189,7 @@
             <i onclick="closeVideoModal()" class="fa-solid fa-xmark"></i>
         </div>
             <div class="video-modal-video">
-                <iframe width="100%" height="100%" src="https://www.youtube.com/embed/Vb0dG-2huJE?si=Pu67rJ5CztznIs-T" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+                <iframe width="100%" height="100%" src="https://www.youtube.com/embed/Vb0dG-2huJE?autoplay=1&mute=1" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
             </div>
         </div>
     </div>
