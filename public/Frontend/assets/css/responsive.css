@@ -1,0 +1,569 @@
+@media only screen and (min-width: 992px) and (max-width: 1199px) {
+  /* 
+  -------------------------------------------
+  ----------------Header---------------------
+  -------------------------------------------
+   */
+  .header .row{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+    gap: .2em;
+  }
+  .header .row .col .logo{
+    padding-left: 5px;
+  }
+  .header .row .col .nev ul li a{
+    font-size: 17px;
+  }
+  .main-search input{
+    width: 150px;
+  }
+
+/* 
+--------------------------------------------------
+----------------Projecct Section-------------------
+-------------------------------------------------
+*/
+.project-content .card{
+  flex: 1;
+  flex-basis: 200px;
+}
+.project-content .card .top h1{
+  font-size: 50px;
+}
+.project-content .card p{
+  font-size: 18px;
+}
+/* 
+--------------------------------------------------
+----------------Portfolio Section-------------------
+-------------------------------------------------
+*/
+.portfolio-cards .card{
+  display: block;
+  flex: 1;
+  flex-basis: 250px;
+  max-width: 370px;
+}
+
+  
+
+}
+@media only screen and (min-width: 768px) and (max-width: 991px) {
+  /* 
+  -------------------------------------------
+  ----------------Header---------------------
+  -------------------------------------------
+   */
+   .header .row .col .logo{
+    padding-left: 5px;
+  }
+  .header{
+    position: relative;
+  }
+  .header .col.right{
+    display: none !important;
+  }
+  .header .col.main-nev{
+    display: none;
+  }
+  /* Mobile Menu----*/
+  .header .row .col.mobile-menu{
+    display: block;
+    text-align: right;
+  }
+  
+  /*
+  --------------------------------------------------
+  ----------------About Section-------------------
+  -------------------------------------------------
+  */
+  .about .about-content .about-left{
+    flex: 1;
+    flex-basis: 20%;
+  }
+  .about .about-content .about-right{
+    flex: 1;
+    flex-basis: 20%;
+  }
+  /* 
+  --------------------------------------------------
+  ----------------Projecct Section-------------------
+  -------------------------------------------------
+  */
+  .project-content{
+    gap: 2.5em;
+  }
+  .project-content .card{
+    flex: 1;
+    flex-basis: 150px;
+  }
+  .project-content .card .top img{
+    width: 40px;
+  }
+  .project-content .card .top h1{
+    font-size: 40px;
+  }
+  .project-content .card p{
+    font-size: 16px;
+  }
+  /* 
+  --------------------------------------------------
+  ----------------Portfolio Section-------------------
+  -------------------------------------------------
+  */
+  .portfolio-cards .card{
+    display: block;
+    flex: 1;
+    flex-basis: 300px;
+    max-width: 500px;
+  }
+  /* 
+  --------------------------------------------------
+  ----------------About Page-------------------
+  -------------------------------------------------
+  */
+  .ser-details .ser-details-content .left h3{
+    font-size: 25px;
+  }
+  .ser-details .ser-details-content .right .ser-img-wrapper{
+    width: 100%;
+    max-height: 800px;
+    overflow: hidden;
+  }
+  .ser-details .ser-details-content .left p{
+    font-size: 16px;
+    line-height: 25px;
+  }
+  .default-hero{
+    padding: 150px 10px;
+  }
+  /* 
+  --------------------------------------------------
+  ----------------Blog Page-------------------
+  -------------------------------------------------
+  */
+  .blogs .blogs-content .blog-left{
+    flex-basis: 50%;
+  }
+  .blogs .blogs-content .blog-left .card .blg-card-left .blg-img-wrapper{
+    width: 100%;
+    height: 350px;
+  }
+  .blogs .blogs-content .blog-right{
+    flex-basis: 40%;
+  }
+
+}
+
+@media only screen and (min-width: 576px) and (max-width: 767px) {
+  /* 
+  -------------------------------------------
+  ----------------Header---------------------
+  -------------------------------------------
+   */
+  .header .row .col .logo{
+    padding-left: 5px;
+  }
+  .header{
+    position: relative;
+  }
+  .header .col.right{
+    display: none !important;
+  }
+  .header .col.main-nev{
+    display: none;
+  }
+  /* Mobile Menu------ */
+  .header .row .col.mobile-menu{
+    display: block;
+    text-align: right;
+  }
+  /*
+  -------------------------------------------
+  ----------------Slider---------------------
+  -------------------------------------------
+   */
+   .slider .slider-content{
+    width: 100%;
+    padding-top: 150px;
+  }
+  .slider .slider-content h1{
+    font-size: 50px;
+    color: var(--secondary-dark-color);
+    font-weight: 700;
+    line-height: 70px;
+    text-transform: capitalize;
+    margin-bottom: 30px;
+  }
+  /*
+  --------------------------------------------------
+  ----------------About Section-------------------
+  -------------------------------------------------
+  */
+  .about .about-content .about-left{
+    display: none;
+  }
+  .about .about-content .about-right{
+    flex: 1;
+    flex-basis: 100%;
+  }
+  .about-img-minidevice{
+    display: block;
+    margin-bottom: 30px;
+  }
+  /* 
+  --------------------------------------------------
+  ----------------Projecct Section-------------------
+  -------------------------------------------------
+  */
+  .project-content{
+    gap: 1em;
+  }
+  .project-content .card{
+    flex: 1;
+    flex-basis: 110px;
+  }
+  .project-content .card .top{
+    gap: .3em;
+    margin-bottom: 5px;
+  }
+  .project-content .card .top img{
+    width: 30px;
+  }
+  .project-content .card .top h1{
+    font-size: 30px;
+  }
+  .project-content .card p{
+    font-size: 12px;
+  }
+  /* 
+  --------------------------------------------------
+  ----------------Portfolio Section-------------------
+  -------------------------------------------------
+  */
+  .portfolio-cards .card{
+    display: block;
+    flex: 1;
+    flex-basis: 260px;
+    max-width: 800px;
+  }
+
+  /* 
+  -------------------------------------------
+  ----------------Contact section-----------
+  -------------------------------------------
+   */
+   .contact .contact-content .left{
+    display: none;
+  }
+  /* 
+  -------------------------------------------
+  ----------------About page---------------------
+  -------------------------------------------
+   */
+   .ser-details .ser-details-content{
+    display: flex;
+    flex-direction: column;
+    gap: 1em;
+  }
+  .ser-details .ser-details-content:nth-child(even) {
+    flex-direction: column;
+  }
+  .ser-details .ser-details-content .left{
+    flex: 1;
+    flex-basis: 300px;
+    max-width: 100%;
+  }
+  .ser-details .ser-details-content .right{
+    flex: 1;
+    flex-basis: 300px;
+    max-width: 100%;
+  }
+  .ser-details .ser-details-content .left h3{
+    font-size: 25px;
+  }
+  .ser-details .ser-details-content .right .ser-img-wrapper{
+    width: 100%;
+    max-height: 800px;
+    overflow: hidden;
+  }
+  .ser-details .ser-details-content .left p{
+    font-size: 16px;
+    line-height: 25px;
+  }
+  .default-hero{
+    padding: 150px 10px;
+  }
+  /* 
+  -------------------------------------------
+  ----------------Blog Page---------------------
+  -------------------------------------------
+   */
+   .blogs .blogs-content{
+    display: flex;
+    flex-direction: column-reverse;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 2em;
+  }
+  .blogs .blogs-content .blog-left{
+    flex-basis: 100%;
+  }
+  .blogs .blogs-content .blog-left .card .blg-card-left .blg-img-wrapper{
+    width: 100%;
+    height: 350px;
+  }
+  .blogs .blogs-content .blog-right{
+    flex-basis: 100%;
+  }
+  /* 
+  -------------------------------------------
+  ----------------Testimonial Modal----------
+  -------------------------------------------
+   */
+   .video-modal{
+    width: 95%;
+    height: 450px;
+  }
+  /* 
+  -------------------------------------------
+  ----------------Footer---------------------
+  -------------------------------------------
+   */
+  .footer .footer-content .row{
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 2em;
+  }
+  .footer .footer-content .row .col{
+   flex: 1;
+   flex-basis: 200px;
+  }
+}
+
+@media (max-width: 575px) {
+/* 
+  --------------------------------
+  Comn Class-----------------------
+  ----------------------------------
+*/
+.title{
+  font-size: 30px;
+  font-weight: 700;
+  color: var(--secondary-dark-color);
+  margin: 10px 0;
+}
+  /* 
+  -------------------------------------------
+  ----------------Header---------------------
+  -------------------------------------------
+ */
+ /* Request Form---- */
+.request-form{
+  width: 90%;
+  height: auto;
+  padding: 15px;
+}
+.request-form .request-form-body form button{
+  font-size: 12px;
+}
+
+/* Header */
+.header .row .col .logo{
+  padding-left: 5px;
+}
+.header .col.main-nev{
+  display: none;
+}
+
+/* Mobile Menu-----------*/
+.header .row .col.mobile-menu{
+  display: block;
+  text-align: right;
+}
+  
+   /*
+  -------------------------------------------
+  ----------------Slider---------------------
+  -------------------------------------------
+   */
+   .slider .slider-content{
+    width: 100%;
+    padding-top: 100px;
+  }
+  .slider .slider-content h1{
+    font-size: 45px;
+    color: var(--secondary-dark-color);
+    font-weight: 700;
+    line-height: 60px;
+    text-transform: capitalize;
+    margin-bottom: 30px;
+  }
+  /*
+  --------------------------------------------------
+  ----------------About Section-------------------
+  -------------------------------------------------
+  */
+  .about .about-content .about-left{
+    display: none;
+  }
+  .about .about-content .about-right{
+    flex: 1;
+    flex-basis: 100%;
+  }
+  .about-img-minidevice{
+    display: block;
+    margin-bottom: 20px;
+  }
+  /* 
+  --------------------------------------------------
+  ----------------Projecct Section-------------------
+  -------------------------------------------------
+  */
+  .project-content .card{
+    text-align: center;
+  }
+  .project-content .card .top{
+    justify-content: center;
+  }
+  /* 
+  --------------------------------------------------
+  ----------------Portfolio Section-------------------
+  -------------------------------------------------
+  */
+  .portfolio-cards .card{
+    display: block;
+    flex: 1;
+    flex-basis: 260px;
+    max-width: 800px;
+  }
+  /* 
+  -------------------------------------------
+  ----------------Contact section-----------
+  -------------------------------------------
+   */
+   .contact .contact-content .left{
+    display: none;
+  }
+
+  /* 
+  -------------------------------------------
+  ----------------About page-----------------
+  -------------------------------------------
+   */
+   .ser-details .ser-details-content{
+    display: flex;
+    flex-direction: column;
+    gap: 1em;
+    margin-bottom: 20px;
+  }
+  .ser-details .ser-details-content:nth-child(even) {
+    flex-direction: column;
+  }
+  .ser-details .ser-details-content .left{
+    flex: 1;
+    flex-basis: 300px;
+    max-width: 100%;
+  }
+  .ser-details .ser-details-content .right{
+    flex: 1;
+    flex-basis: 300px;
+    max-width: 100%;
+  }
+  .ser-details .ser-details-content .left h3{
+    font-size: 25px;
+  }
+  .ser-details .ser-details-content .right .ser-img-wrapper{
+    width: 100%;
+    max-height: 350px;
+    overflow: hidden;
+  }
+  .ser-details .ser-details-content .left p{
+    font-size: 16px;
+    line-height: 25px;
+  }
+  .default-hero{
+    padding: 100px 10px;
+  }
+  /* 
+  -------------------------------------------
+  ----------------Blog Page---------------------
+  -------------------------------------------
+   */
+   .blogs .blogs-content{
+    display: flex;
+    flex-direction: column-reverse;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 2em;
+  }
+  .blogs .blogs-content .blog-left{
+    flex-basis: 100%;
+  }
+  .blogs .blogs-content .blog-left .card .blg-card-left .blg-img-wrapper{
+    width: 100%;
+    height: 350px;
+  }
+  .blogs .blogs-content .blog-right{
+    flex-basis: 100%;
+  }
+  /* 
+  -------------------------------------------
+  ----------------Blog Details---------------------
+  -------------------------------------------
+   */
+   .writter .writter-content{
+    justify-content: start;
+    align-items: start;
+    gap: 2em;
+  }
+  .writter .writter-content{
+    flex-direction: column;
+  }
+  .comments .comments-content .comments-body .card{
+    flex-direction: column;
+    justify-content: start;
+    align-items: start;
+  }
+  .comments .comments-content .comments-body .card:nth-child(even){
+    margin-left: 0;
+  }
+    /* 
+  -------------------------------------------
+  ----------------Testimonial Modal----------
+  -------------------------------------------
+   */
+   .video-modal{
+    width: 95%;
+    height: 350px;
+  }
+  /* 
+  -------------------------------------------
+  ----------------Footer---------------------
+  -------------------------------------------
+   */
+  .footer .footer-content .row{
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 2em;
+    padding: 0 10px;
+  }
+  .footer .footer-content .row .col{
+   flex: 1;
+   flex-basis: 200px;
+  }
+
+  
+}
+
+@media (max-width: 500px) {
+
+}
