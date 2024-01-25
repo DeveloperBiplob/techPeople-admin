@@ -1,13 +1,13 @@
 <?php
 
-use App\Http\Controllers\AboutController;
-use App\Http\Controllers\BlogController;
-use App\Http\Controllers\BlogDetailsController;
-use App\Http\Controllers\ContactController;
-use App\Http\Controllers\HomeController;
-use App\Http\Controllers\PortfolioController;
+use App\Http\Controllers\AboutPageController;
+use App\Http\Controllers\BlogPageController;
+use App\Http\Controllers\BlogDetailsPageController;
+use App\Http\Controllers\ContactPageController;
+use App\Http\Controllers\HomePageController;
+use App\Http\Controllers\PortfolioPageController;
 use App\Http\Controllers\ProfileController;
-use App\Http\Controllers\ServiceController;
+use App\Http\Controllers\ServicePageController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -21,13 +21,13 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', [HomeController::class, 'index'])->name('home');
-Route::get('about', [AboutController::class, 'index'])->name('about');
-Route::get('service', [ServiceController::class, 'index'])->name('service');
-Route::get('portfolio', [PortfolioController::class, 'index'])->name('portfolio');
-Route::get('blog', [BlogController::class, 'index'])->name('blog');
-Route::get('details', [BlogDetailsController::class, 'index'])->name('blogdetails');
-Route::get('contact', [ContactController::class, 'index'])->name('contact');
+Route::get('/', [HomePageController::class, 'index'])->name('home');
+Route::get('about', [AboutPageController::class, 'index'])->name('about');
+Route::get('service', [ServicePageController::class, 'index'])->name('service');
+Route::get('portfolio', [PortfolioPageController::class, 'index'])->name('portfolio');
+Route::get('blog', [BlogPageController::class, 'index'])->name('blog');
+Route::get('details', [BlogDetailsPageController::class, 'index'])->name('blogdetails');
+Route::get('contact', [ContactPageController::class, 'index'])->name('contact');
 
 Route::get('/dashboard', function () {
     return view('Backend.Layouts.master');
