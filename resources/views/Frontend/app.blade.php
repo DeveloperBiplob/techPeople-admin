@@ -9,7 +9,7 @@
     <link rel="icon" type="image/x-icon" href="/assets/img/logo/pavicon.icon">
     <link rel="manifest" href="site.webmanifest">
     <meta name="keywords" content="">
-    <link rel="shortcut icon" type="image/x-icon" href="/assets/img/logo/pavicon.icon">
+    <link rel="shortcut icon" type="image/x-icon" href="{{ asset('Frontend')}}/assets/img/logo/pavicon.icon">
 
     <!-- Style & Responsive style sheet -->
 	<link rel="stylesheet" href="{{ asset('Frontend') }}/assets/css/style.css">

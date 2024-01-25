@@ -30,7 +30,7 @@ Route::get('details', [BlogDetailsPageController::class, 'index'])->name('blogde
 Route::get('contact', [ContactPageController::class, 'index'])->name('contact');
 
 Route::get('/dashboard', function () {
-    return view('Backend.Layouts.master');
+    return view('Backend.Pages.dashboard');
 })->middleware(['auth', 'verified'])->name('dashboard');
 
 Route::middleware('auth')->group(function () {
