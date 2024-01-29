@@ -13,7 +13,13 @@
         <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
           <!-- Add icons to the links using the .nav-icon class
                with font-awesome or any other icon font library -->
-          <li class="nav-item has-treeview menu-open">
+            <li class="nav-item">
+            <a href="{{ route('slider.index') }}" class="nav-link {{ Route::is('slider.index') || Route::is('slider.edit') ? 'active' : '' }}">
+              <i class="fa-brands fa-slideshare mr-1"></i>
+              <p>Slider</p>
+            </a>
+          </li>
+          {{-- <li class="nav-item has-treeview menu-open">
             <a href="#" class="nav-link">
               <i class="nav-icon far fa-circle nav-icon"></i>
               <p>
@@ -41,13 +47,7 @@
                 </a>
               </li>
             </ul>
-          </li>
-          <li class="nav-item">
-            <a href="pages/widgets.html" class="nav-link">
-              <i class="nav-icon fas fa-th"></i>
-              <p>Cetegory</p>
-            </a>
-          </li>
+          </li> --}}
         </ul>
       </nav>
       <!-- /.sidebar-menu -->
