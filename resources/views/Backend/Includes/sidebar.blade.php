@@ -14,9 +14,21 @@
           <!-- Add icons to the links using the .nav-icon class
                with font-awesome or any other icon font library -->
             <li class="nav-item">
+            <a href="{{ route('dashboard') }}" class="nav-link {{ Route::is('dashboard') ? 'active' : '' }}">
+              <i class="fa-solid fa-house mr-1"></i>
+              <p>Dashboard</p>
+            </a>
+          </li>
+            <li class="nav-item">
             <a href="{{ route('slider.index') }}" class="nav-link {{ Route::is('slider.index') || Route::is('slider.edit') ? 'active' : '' }}">
               <i class="fa-brands fa-slideshare mr-1"></i>
               <p>Slider</p>
+            </a>
+          </li>
+            <li class="nav-item">
+            <a href="{{ route('about.index') }}" class="nav-link {{ Route::is('about.index') || Route::is('about.create') || Route::is('about.show') || Route::is('about.edit') ? 'active' : '' }}">
+              <i class="fa-solid fa-address-card mr-1"></i>
+              <p>About</p>
             </a>
           </li>
           {{-- <li class="nav-item has-treeview menu-open">

@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\AboutController;
 use App\Http\Controllers\AboutPageController;
 use App\Http\Controllers\BlogPageController;
 use App\Http\Controllers\BlogDetailsPageController;
@@ -40,6 +41,7 @@ Route::prefix('dashboard')->middleware('auth')->group(function () {
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 
     Route::resource('slider', SliderController::class);
+    Route::resource('about', AboutController::class);
 });
 
 require __DIR__.'/auth.php';
