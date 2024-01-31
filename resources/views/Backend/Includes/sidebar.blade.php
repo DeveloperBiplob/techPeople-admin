@@ -25,10 +25,16 @@
               <p>Slider</p>
             </a>
           </li>
-            <li class="nav-item">
+          <li class="nav-item">
             <a href="{{ route('about.index') }}" class="nav-link {{ Route::is('about.index') || Route::is('about.create') || Route::is('about.show') || Route::is('about.edit') || Route::is('companyView') ? 'active' : '' }}">
               <i class="fa-solid fa-address-card mr-1"></i>
               <p>About</p>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a href="{{ route('service.index') }}" class="nav-link {{ Route::is('service.index') || Route::is('service.create') || Route::is('service.show') || Route::is('service.edit') || Route::is('process.create') || Route::is('process.show') || Route::is('process.edit') ? 'active' : '' }}">
+              <i class="fa-solid fa-briefcase mr-1"></i>
+              <p>Service</p>
             </a>
           </li>
           {{-- <li class="nav-item has-treeview menu-open">

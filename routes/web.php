@@ -8,8 +8,10 @@ use App\Http\Controllers\ContactPageController;
 use App\Http\Controllers\HomePageController;
 use App\Http\Controllers\PortfolioPageController;
 use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\ServiceController;
 use App\Http\Controllers\ServicePageController;
 use App\Http\Controllers\SliderController;
+use App\Http\Controllers\ProcessController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -46,6 +48,9 @@ Route::prefix('dashboard')->middleware('auth')->group(function () {
     Route::get('/company-view/{companyDetail}', [AboutController::class, 'companyView'])->name('companyView');
     Route::get('/company-edit/{companyDetail}', [AboutController::class, 'companyEdit'])->name('companyEdit');
     Route::put('/company-update/{companyDetail}', [AboutController::class, 'companyUpdate'])->name('companyUpdate');
+
+    Route::resource('service', ServiceController::class);
+    Route::resource('process', ProcessController::class);
 });
 
 require __DIR__.'/auth.php';
