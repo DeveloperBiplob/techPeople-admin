@@ -26,7 +26,7 @@
             </a>
           </li>
             <li class="nav-item">
-            <a href="{{ route('about.index') }}" class="nav-link {{ Route::is('about.index') || Route::is('about.create') || Route::is('about.show') || Route::is('about.edit') ? 'active' : '' }}">
+            <a href="{{ route('about.index') }}" class="nav-link {{ Route::is('about.index') || Route::is('about.create') || Route::is('about.show') || Route::is('about.edit') || Route::is('companyView') ? 'active' : '' }}">
               <i class="fa-solid fa-address-card mr-1"></i>
               <p>About</p>
             </a>

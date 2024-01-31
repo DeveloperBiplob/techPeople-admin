@@ -42,6 +42,10 @@ Route::prefix('dashboard')->middleware('auth')->group(function () {
 
     Route::resource('slider', SliderController::class);
     Route::resource('about', AboutController::class);
+    
+    Route::get('/company-view/{companyDetail}', [AboutController::class, 'companyView'])->name('companyView');
+    Route::get('/company-edit/{companyDetail}', [AboutController::class, 'companyEdit'])->name('companyEdit');
+    Route::put('/company-update/{companyDetail}', [AboutController::class, 'companyUpdate'])->name('companyUpdate');
 });
 
 require __DIR__.'/auth.php';

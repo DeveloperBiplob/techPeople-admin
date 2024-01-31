@@ -8,6 +8,45 @@
     <div class="card">
         <div class="card-header">
             <div class="d-flex justify-content-between align-items-center">
+                <h3 class="fw-bolder">About Your Company (Describe Stortly)</h3>
+                <a href="{{ route('companyEdit', $companyDetail->slug) }}" class="btn btn-md btn-success"><i class="fa-solid fa-plus mr-1"></i> Update</a>
+            </div>
+        </div>
+        <div class="card-body">
+            <div class="table-responsive">
+                <table class="table table-bordered table-collapse">
+                  <thead>
+                    <tr>
+                      <th>Title</th>
+                      <th>Description</th>
+                      <th>Image</th>
+                      <th style="width: 200px">Action</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                        <td>{{ $companyDetail->title }}</td>
+                        <td>{!! Str::limit($companyDetail->description, 100) !!}</td>
+                        {{-- <td style="max-width: 100px; white-space:nowrap;overflow:hidden;text-overflow:ellipsis;">{!! $about->description !!}</td> --}}
+                        <td>
+                           <div style="width: 100px; height:50px; overflow:hidden;">
+                            <img width="100%" src="{{ asset($companyDetail->image) }}" alt="">
+                           </div>
+                        </td>
+                        <td>
+                            <a href="{{ route('companyView', $companyDetail->slug) }}" class="btn btn-sm btn-success"><i class="fa-solid fa-eye"></i></a>
+                            <a href="{{ route('companyEdit', $companyDetail->slug) }}" class="btn btn-sm btn-info"><i class="fa-solid fa-pen-to-square"></i></a>
+                        </td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+        </div>
+    </div>
+    
+    <div class="card">
+        <div class="card-header">
+            <div class="d-flex justify-content-between align-items-center">
                 <h3 class="fw-bolder">About</h3>
                 <a href="{{ route('about.create') }}" class="btn btn-md btn-success"><i class="fa-solid fa-plus mr-1"></i> Add New</a>
             </div>

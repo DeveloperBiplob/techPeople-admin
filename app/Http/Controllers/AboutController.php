@@ -7,6 +7,8 @@ use App\Action\File;
 use App\Models\About;
 use App\Http\Requests\StoreAboutRequest;
 use App\Http\Requests\UpdateAboutRequest;
+use App\Models\CompanyDetail;
+use Illuminate\Http\Request;
 
 class AboutController extends Controller
 {
@@ -15,8 +17,9 @@ class AboutController extends Controller
      */
     public function index()
     {
+        $companyDetail = CompanyDetail::first();
         $abouts = About::get();
-        return view('Backend.Pages.About.index', compact('abouts'));
+        return view('Backend.Pages.About.index', compact('abouts', 'companyDetail'));
     }
 
     /**
@@ -97,5 +100,44 @@ class AboutController extends Controller
             $this->notificationMessage('About Deleted Successfully!');
             return redirect()->route('about.index');
         }
+    }
+    
+    /**
+     * About Company
+     */
+    public function companyView(CompanyDetail $companyDetail)
+    {
+        $about  = $companyDetail;
+        return view('Backend.Pages.About.show', compact('about'));
+    }
+
+    public function companyEdit(CompanyDetail $companyDetail)
+    {
+        $about  = $companyDetail;
+        return view('Backend.Pages.About.companyEdit', compact('about'));
+    }
+    public function companyUpdate(Request $request, CompanyDetail $companyDetail)
+    {
+        if($request->hasFile('image')){
+            $old_image = $companyDetail->image;
+            File::deleteFile($old_image);
+
+            $companyDetail->update([
+                'title' => $request->title,
+                'slug' => Str::slug($request->title),
+                'description' => $request->description,
+                'image' => File::upload($request->file('image'), 'CompanyDetail')
+            ]);
+
+        }else{
+            $companyDetail->update([
+                'title' => $request->title,
+                'slug' => Str::slug($request->title),
+                'description' => $request->description
+            ]);
+
+        }
+        $this->notificationMessage('Company Details Update Successfully!');
+        return redirect()->route('about.index');
     }
 }
