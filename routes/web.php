@@ -4,6 +4,7 @@ use App\Http\Controllers\AboutController;
 use App\Http\Controllers\AboutPageController;
 use App\Http\Controllers\BlogPageController;
 use App\Http\Controllers\BlogDetailsPageController;
+use App\Http\Controllers\BrandController;
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\ContactPageController;
 use App\Http\Controllers\HomePageController;
@@ -60,6 +61,7 @@ Route::prefix('dashboard')->middleware('auth')->group(function () {
     Route::resource('category', CategoryController::class);
     Route::resource('portfolio', PortfolioController::class);
     Route::resource('testimonial', TestimonialController::class);
+    Route::resource('brand', BrandController::class);
 });
 
 require __DIR__.'/auth.php';

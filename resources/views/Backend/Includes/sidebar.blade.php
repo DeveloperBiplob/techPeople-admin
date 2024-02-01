@@ -61,6 +61,12 @@
               <p>Testimonial <i class="right fas fa-angle-right"></i></p>
             </a>
           </li>
+          <li class="nav-item">
+            <a href="{{ route('brand.index') }}" class="nav-link {{ Route::is('brand.index') || Route::is('brand.edit')  ? 'active' : '' }}">
+              <i class="fa-brands fa-artstation mr-1"></i>
+              <p>Brand <i class="right fas fa-angle-right"></i></p>
+            </a>
+          </li>
           {{-- <li class="nav-item has-treeview menu-open">
             <a href="#" class="nav-link">
               <i class="nav-icon far fa-circle nav-icon"></i>
