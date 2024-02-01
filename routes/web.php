@@ -6,6 +6,7 @@ use App\Http\Controllers\BlogPageController;
 use App\Http\Controllers\BlogDetailsPageController;
 use App\Http\Controllers\ContactPageController;
 use App\Http\Controllers\HomePageController;
+use App\Http\Controllers\OverviewController;
 use App\Http\Controllers\PortfolioPageController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\ServiceController;
@@ -51,6 +52,8 @@ Route::prefix('dashboard')->middleware('auth')->group(function () {
 
     Route::resource('service', ServiceController::class);
     Route::resource('process', ProcessController::class);
+
+    Route::resource('overview', OverviewController::class);
 });
 
 require __DIR__.'/auth.php';

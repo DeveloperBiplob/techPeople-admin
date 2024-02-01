@@ -37,6 +37,12 @@
               <p>Service</p>
             </a>
           </li>
+          <li class="nav-item">
+            <a href="{{ route('overview.index') }}" class="nav-link {{ Route::is('overview.index') || Route::is('overview.edit')  ? 'active' : '' }}">
+              <i class="fa-solid fa-trophy mr-1"></i>
+              <p>Project Overview</p>
+            </a>
+          </li>
           {{-- <li class="nav-item has-treeview menu-open">
             <a href="#" class="nav-link">
               <i class="nav-icon far fa-circle nav-icon"></i>
