@@ -17,11 +17,20 @@
           <i class="far fa-user"></i> <span>User</span>
         </a>
         <div class="dropdown-menu dropdown-menu-lg dropdown-menu-right">
+          <div class="dropdown-item">
+            <div style="display: flex;justify-content:space-between;align-items:center">
+              <a href="">Change Password</a>
+              <i class="fa-solid fa-key"></i>
+            </div>
+          </div>
           <div class="dropdown-divider"></div>
           @auth('web')
           <form action="{{ route('logout') }}" method="POST" class="dropdown-item">
               @csrf
-              <button class="btn btn-block btn-danger" type="submit" style="margin-top: 7px">Logout</button>
+              <button style="width:100%;background:none; border:none;display: flex;justify-content:space-between;align-items:center" type="submit">
+                <span>Logout</span>
+                <i class="fa-solid fa-right-from-bracket"></i>
+              </button>
           </form>
           @endauth
         </div>

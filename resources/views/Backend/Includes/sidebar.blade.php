@@ -16,43 +16,49 @@
             <li class="nav-item">
             <a href="{{ route('dashboard') }}" class="nav-link {{ Route::is('dashboard') ? 'active' : '' }}">
               <i class="fa-solid fa-house mr-1"></i>
-              <p>Dashboard</p>
+              <p>Dashboard <i class="right fas fa-angle-right"></i></p>
             </a>
           </li>
             <li class="nav-item">
             <a href="{{ route('slider.index') }}" class="nav-link {{ Route::is('slider.index') || Route::is('slider.edit') ? 'active' : '' }}">
               <i class="fa-brands fa-slideshare mr-1"></i>
-              <p>Slider</p>
+              <p>Slider <i class="right fas fa-angle-right"></i></p>
             </a>
           </li>
           <li class="nav-item">
             <a href="{{ route('about.index') }}" class="nav-link {{ Route::is('about.index') || Route::is('about.create') || Route::is('about.show') || Route::is('about.edit') || Route::is('companyView') ? 'active' : '' }}">
               <i class="fa-solid fa-address-card mr-1"></i>
-              <p>About</p>
+              <p>About <i class="right fas fa-angle-right"></i></p>
             </a>
           </li>
           <li class="nav-item">
             <a href="{{ route('service.index') }}" class="nav-link {{ Route::is('service.index') || Route::is('service.create') || Route::is('service.show') || Route::is('service.edit') || Route::is('process.create') || Route::is('process.show') || Route::is('process.edit') ? 'active' : '' }}">
               <i class="fa-solid fa-briefcase mr-1"></i>
-              <p>Service</p>
+              <p>Service <i class="right fas fa-angle-right"></i></p>
             </a>
           </li>
           <li class="nav-item">
             <a href="{{ route('overview.index') }}" class="nav-link {{ Route::is('overview.index') || Route::is('overview.edit')  ? 'active' : '' }}">
               <i class="fa-solid fa-trophy mr-1"></i>
-              <p>Project Overview</p>
+              <p>Project Overview <i class="right fas fa-angle-right"></i></p>
             </a>
           </li>
           <li class="nav-item">
             <a href="{{ route('category.index') }}" class="nav-link {{ Route::is('category.index') || Route::is('category.edit')  ? 'active' : '' }}">
               <i class="fa-solid fa-list mr-1"></i>
-              <p>Category</p>
+              <p>Category <i class="right fas fa-angle-right"></i></p>
             </a>
           </li>
           <li class="nav-item">
             <a href="{{ route('portfolio.index') }}" class="nav-link {{ Route::is('portfolio.index') || Route::is('portfolio.create') || Route::is('portfolio.edit') || Route::is('portfolio.show')  ? 'active' : '' }}">
               <i class="fa-solid fa-address-card mr-1"></i>
-              <p>Portfolio</p>
+              <p>Portfolio <i class="right fas fa-angle-right"></i></p>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a href="{{ route('testimonial.index') }}" class="nav-link {{ Route::is('testimonial.index') || Route::is('testimonial.create') || Route::is('testimonial.edit') || Route::is('testimonial.show')  ? 'active' : '' }}">
+              <i class="fa-solid fa-handshake mr-1"></i>
+              <p>Testimonial <i class="right fas fa-angle-right"></i></p>
             </a>
           </li>
           {{-- <li class="nav-item has-treeview menu-open">

@@ -15,6 +15,7 @@ use App\Http\Controllers\ServiceController;
 use App\Http\Controllers\ServicePageController;
 use App\Http\Controllers\SliderController;
 use App\Http\Controllers\ProcessController;
+use App\Http\Controllers\TestimonialController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -58,6 +59,7 @@ Route::prefix('dashboard')->middleware('auth')->group(function () {
     Route::resource('overview', OverviewController::class);
     Route::resource('category', CategoryController::class);
     Route::resource('portfolio', PortfolioController::class);
+    Route::resource('testimonial', TestimonialController::class);
 });
 
 require __DIR__.'/auth.php';
