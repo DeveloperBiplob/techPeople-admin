@@ -43,6 +43,18 @@
               <p>Project Overview</p>
             </a>
           </li>
+          <li class="nav-item">
+            <a href="{{ route('category.index') }}" class="nav-link {{ Route::is('category.index') || Route::is('category.edit')  ? 'active' : '' }}">
+              <i class="fa-solid fa-list mr-1"></i>
+              <p>Category</p>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a href="{{ route('portfolio.index') }}" class="nav-link {{ Route::is('portfolio.index') || Route::is('portfolio.create') || Route::is('portfolio.edit') || Route::is('portfolio.show')  ? 'active' : '' }}">
+              <i class="fa-solid fa-address-card mr-1"></i>
+              <p>Portfolio</p>
+            </a>
+          </li>
           {{-- <li class="nav-item has-treeview menu-open">
             <a href="#" class="nav-link">
               <i class="nav-icon far fa-circle nav-icon"></i>

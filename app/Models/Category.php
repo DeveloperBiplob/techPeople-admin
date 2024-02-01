@@ -5,13 +5,11 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Process extends Model
+class Category extends Model
 {
     use HasFactory;
 
-    protected $fillable = ['service_id', 'title', 'slug', 'description', 'image'];
-
-    protected $with = ['service'];
+    protected $fillable = ['name', 'slug'];
 
     /**
      * Get the route key for the model.
@@ -19,10 +17,5 @@ class Process extends Model
     public function getRouteKeyName(): string
     {
         return 'slug';
-    }
-
-    public function service()
-    {
-        return $this->belongsTo(Service::class);
     }
 }

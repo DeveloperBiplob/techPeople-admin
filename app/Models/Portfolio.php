@@ -5,13 +5,13 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Process extends Model
+class Portfolio extends Model
 {
     use HasFactory;
 
-    protected $fillable = ['service_id', 'title', 'slug', 'description', 'image'];
+    protected $fillable = ['category_id', 'title', 'slug', 'description', 'image'];
 
-    protected $with = ['service'];
+     protected $with = ['category'];
 
     /**
      * Get the route key for the model.
@@ -21,8 +21,8 @@ class Process extends Model
         return 'slug';
     }
 
-    public function service()
+    public function category()
     {
-        return $this->belongsTo(Service::class);
+        return $this->belongsTo(Category::class);
     }
 }

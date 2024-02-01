@@ -4,9 +4,11 @@ use App\Http\Controllers\AboutController;
 use App\Http\Controllers\AboutPageController;
 use App\Http\Controllers\BlogPageController;
 use App\Http\Controllers\BlogDetailsPageController;
+use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\ContactPageController;
 use App\Http\Controllers\HomePageController;
 use App\Http\Controllers\OverviewController;
+use App\Http\Controllers\PortfolioController;
 use App\Http\Controllers\PortfolioPageController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\ServiceController;
@@ -54,6 +56,8 @@ Route::prefix('dashboard')->middleware('auth')->group(function () {
     Route::resource('process', ProcessController::class);
 
     Route::resource('overview', OverviewController::class);
+    Route::resource('category', CategoryController::class);
+    Route::resource('portfolio', PortfolioController::class);
 });
 
 require __DIR__.'/auth.php';
