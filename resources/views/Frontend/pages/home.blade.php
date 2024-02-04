@@ -2,14 +2,14 @@
 @section('title', 'Home')
 @section('app-content')
         <!-- Slider -->
-        <section class="slider">
+        <section class="slider" style="background-image: url({{ asset($slider->image) }})">
             <div class="container">
                 <div class="slider-content">
-                    <span class="short-title-slider">Focus on Business</span>
-                    <h1>our target is to reach <span>the goal</span></h1>
-                    <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Obcaecati assumenda dolores quisquam maiores atque, illum iste ad ex dolorem est. Lorem ipsum dolor sit amet consectetur adipisicing elit. At, debitis!</p>
+                    <span class="short-title-slider">{{ $slider->sub_title }}</span>
+                    <h1>{{ $slider->title }}</h1>
+                    <p>{{ $slider->description }}</p>
                     <div class="slider-btn-section">
-                        <a class="btn"href="">Explore Our Work</a>
+                        <a class="btn"href="{{ route('service') }}">Explore Our Work</a>
                         <div onclick="showVideoModal()" class="paly-btn"><a href="#"><i class="fas fa-play"></i></a>
                     </div>
                 </div>
@@ -27,16 +27,15 @@
                     <div class="about-right">
                         <span class="short-title">Our Story</span>
                         <h1 class="title">About techPeople</h1>
-                        <p class="sub-title">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Blanditiis, explicabo!</p>
+                        <p class="sub-title">{{ $companyDetails->title }}</p>
     
                         <!-- Mini Device -->
                         <img class="about-img-minidevice" src="{{ asset('Frontend') }}/assets/img/gallery/about.png" alt="">
                         <!-- Mini Device end-->
     
-                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Veritatis doloribus reprehenderit aliquid, perspiciatis dicta quaerat provident accusantium laudantium sint? Et maxime incidunt ipsa, nisi quas possimus laudantium sequi ad illum quaerat maiores iusto aperiam labore qui perferendis error, recusandae, assumenda deserunt fugiat rem necessitatibus odio a! Quis in quae adipisci.</p>
-    
-                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Veritatis doloribus reprehenderit aliquid, perspiciatis dicta quaerat provident accusantium laudantium sint? Et maxime incidunt ipsa, nisi quas possimus laudantium sequi ad illum quaerat maiores iusto aperiam labore qui perferendis error, recusandae, assumenda deserunt fugiat rem necessitatibus odio a! Quis in quae adipisci.</p>
-                        <a href="" class="btn">Learn More</a>
+                        <p>{{ $companyDetails->description }}</p>   
+
+                        <a href="{{ route('about') }}" class="btn">Learn More</a>
     
                     </div>
                 </div>
@@ -54,60 +53,17 @@
     
                     <!-- Service group -->
                     <div class="services">
+                        @foreach ($services as $service)
                         <div class="card">
                             <div class="numbaring">
-                                <h1>01</h1>
+                                <h1>0{{ $loop->index + 1 }}</h1>
                             </div>
-                            <img src="{{ asset('Frontend') }}/assets/img/service/service-icon-1.png" alt="">
-                            <h3>Modern Website Design</h3>
-                            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Provident voluptates, veritatis nisi quas excepturi debitis</p>
+                            <img src="{{ asset($service->image) }}" alt="">
+                            <h3>{{ $service->title }}</h3>
+                            <p>{!! Str::limit($service->description, 150) !!}</p>
                             <a href="">Read More...</a>
                         </div>
-                        <div class="card">
-                            <div class="numbaring">
-                                <h1>02</h1>
-                            </div>
-                            <img src="{{ asset('Frontend') }}/assets/img/service/service-icon-2.jpg" alt="">
-                            <h3>Modern Website Design</h3>
-                            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Provident voluptates, veritatis nisi quas excepturi debitis</p>
-                            <a href="">Read More...</a>
-                        </div>
-                        <div class="card">
-                            <div class="numbaring">
-                                <h1>03</h1>
-                            </div>
-                            <img src="{{ asset('Frontend') }}/assets/img/service/service-icon-3.png" alt="">
-                            <h3>Modern Website Design</h3>
-                            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Provident voluptates, veritatis nisi quas excepturi debitis</p>
-                            <a href="">Read More...</a>
-                        </div>
-                        <div class="card">
-                            <div class="numbaring">
-                                <h1>04</h1>
-                            </div>
-                            <img src="{{ asset('Frontend') }}/assets/img/service/service-icon-4.png" alt="">
-                            <h3>Modern Website Design</h3>
-                            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Provident voluptates, veritatis nisi quas excepturi debitis</p>
-                            <a href="">Read More...</a>
-                        </div>
-                        <div class="card">
-                            <div class="numbaring">
-                                <h1>05</h1>
-                            </div>
-                            <img src="{{ asset('Frontend') }}/assets/img/service/service-icon-5.png" alt="">
-                            <h3>Modern Website Design</h3>
-                            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Provident voluptates, veritatis nisi quas excepturi debitis</p>
-                            <a href="">Read More...</a>
-                        </div>
-                        <div class="card">
-                            <div class="numbaring">
-                                <h1>06</h1>
-                            </div>
-                            <img src="{{ asset('Frontend') }}/assets/img/service/service-icon-6.png" alt="">
-                            <h3>Modern Website Design</h3>
-                            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Provident voluptates, veritatis nisi quas excepturi debitis</p>
-                            <a href="">Read More...</a>
-                        </div>
+                        @endforeach
                     </div>
                     <!-- Service group end -->
                 </div>
@@ -120,43 +76,15 @@
             <div class="container">
                 <div class="project-content">
                     <!-- Single Project -->
+                    @foreach ($overviews as $overview)
                     <div class="card">
                         <div class="top">
                             <img src="{{ asset('Frontend') }}/assets/img/service/count-1.png" alt="">
-                            <h1>300+</h1>
+                            <h1>{{ $overview->amount }}+</h1>
                         </div>
-                        <p>Project Completed</p>
+                        <p>{{ $overview->title }}</p>
                     </div>
-                    <!-- Single Project end -->
-    
-                    <!-- Single Project -->
-                    <div class="card">
-                        <div class="top">
-                            <img src="{{ asset('Frontend') }}/assets/img/service/count-2.png" alt="">
-                            <h1>280+</h1>
-                        </div>
-                        <p>Safisfied Clients</p>
-                    </div>
-                    <!-- Single Project end -->
-    
-                    <!-- Single Project -->
-                    <div class="card">
-                        <div class="top">
-                            <img src="{{ asset('Frontend') }}/assets/img/service/count-3.png" alt="">
-                            <h1>150+</h1>
-                        </div>
-                        <p>Expert Teams</p>
-                    </div>
-                    <!-- Single Project end -->
-    
-                    <!-- Single Project -->
-                    <div class="card">
-                        <div class="top">
-                            <img src="{{ asset('Frontend') }}/assets/img/service/count-4.png" alt="">
-                            <h1>50+</h1>
-                        </div>
-                        <p>Win awards</p>
-                    </div>
+                    @endforeach
                     <!-- Single Project end -->
                 </div>
             </div>
@@ -175,10 +103,10 @@
                     <div class="wrapper">
                         <i id="left" class="fa-solid fa-angle-left"></i>
                         <div class="portfolio-btn-group">
-                            <button onclick="colorChane()" class="filter-button active portfolio-btn-active" data-filter="all" draggable="false">All</button>
-                            <button onclick="colorChane()" class="filter-button" data-filter="user-interface" draggable="false">User Interface</button>
-                            <button onclick="colorChane()" class="filter-button" data-filter="web-development" draggable="false">Web Development</button>
-                            <button onclick="colorChane()" class="filter-button" data-filter="app-development" draggable="false">App Development</button>
+                            {{-- <button onclick="colorChane()" class="filter-button active portfolio-btn-active" data-filter="all" draggable="false">All</button> --}}
+                            @foreach ($categories as $category)
+                            <button id="{{ $category->slug }}" onclick="colorChane('{{ $category->slug }}')" class="filter-button" data-filter="{{ $category->slug }}" draggable="false">{{ $category->name }}</button> 
+                            @endforeach
                         </div>
                         <i id="right" class="fa-solid fa-angle-right"></i>
                         
@@ -188,93 +116,15 @@
                     <!-- Portfolio Cards group -->
                     <div class="portfolio-cards">
                         <!-- Single card -->
-                        <a href="" class="card gallery_product filter all app-development">
+                        @foreach ($portfolios as $portfolio)
+                        <a href="" class="card gallery_product filter all {{ $portfolio->category->slug }}">
                             <div class="card-header">
-                                <img src="{{ asset('Frontend') }}/assets/img/gallery/portfolio-1.png" alt="">
+                                <img src="{{ asset($portfolio->image) }}" alt="">
                             </div>
-                            <h3>Resepin App - Illustration & UI Exploration</h3>
-                            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ratione sequi necessitatibus dolorem architecto, dolorum quos!</p>
-                        </a>
-                        <!-- Single card end -->
-                        
-                        <!-- Single card -->
-                        <a href="" class="card gallery_product filter all user-interface">
-                            <div class="card-header">
-                                <img src="{{ asset('Frontend') }}/assets/img/gallery/portfolio-2.png" alt="">
-                            </div>
-                            <h3>Resepin App - Illustration & UI Exploration</h3>
-                            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ratione sequi necessitatibus dolorem architecto, dolorum quos!</p>
-                        </a>
-                        <!-- Single card end -->
-    
-                        <!-- Single card -->
-                        <a href="" class="card gallery_product filter all app-development">
-                            <div class="card-header">
-                                <img src="{{ asset('Frontend') }}/assets/img/gallery/portfolio-3.png" alt="">
-                            </div>
-                            <h3>Resepin App - Illustration & UI Exploration</h3>
-                            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ratione sequi necessitatibus dolorem architecto, dolorum quos!</p>
-                        </a>
-                        <!-- Single card end -->
-    
-                        <!-- Single card -->
-                        <a href="" class="card gallery_product filter all app-development web-development">
-                            <div class="card-header">
-                                <img src="{{ asset('Frontend') }}/assets/img/gallery/portfolio-4.png" alt="">
-                            </div>
-                            <h3>Resepin App - Illustration & UI Exploration</h3>
-                            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ratione sequi necessitatibus dolorem architecto, dolorum quos!</p>
-                        </a>
-                        <!-- Single card end -->
-    
-                        <!-- Single card -->
-                        <a href="" class="card gallery_product filter all app-development">
-                            <div class="card-header">
-                                <img src="{{ asset('Frontend') }}/assets/img/gallery/portfolio-5.png" alt="">
-                            </div>
-                            <h3>Resepin App - Illustration & UI Exploration</h3>
-                            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ratione sequi necessitatibus dolorem architecto, dolorum quos!</p>
-                        </a>
-                        <!-- Single card end -->
-    
-                        <!-- Single card -->
-                        <a href="" class="card gallery_product filter all user-interface web-development">
-                            <div class="card-header">
-                                <img src="{{ asset('Frontend') }}/assets/img/gallery/portfolio-6.png" alt="">
-                            </div>
-                            <h3>Resepin App - Illustration & UI Exploration</h3>
-                            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ratione sequi necessitatibus dolorem architecto, dolorum quos!</p>
-                        </a>
-                        <!-- Single card end -->
-    
-                        <!-- Single card -->
-                        <a href="" class="card gallery_product filter all user-interface">
-                            <div class="card-header">
-                                <img src="{{ asset('Frontend') }}/assets/img/gallery/portfolio-7.png" alt="">
-                            </div>
-                            <h3>Resepin App - Illustration & UI Exploration</h3>
-                            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ratione sequi necessitatibus dolorem architecto, dolorum quos!</p>
-                        </a>
-                        <!-- Single card end -->
-    
-                        <!-- Single card -->
-                        <a href="" class="card gallery_product filter all web-development">
-                            <div class="card-header">
-                                <img src="{{ asset('Frontend') }}/assets/img/gallery/portfolio-8.png" alt="">
-                            </div>
-                            <h3>Resepin App - Illustration & UI Exploration</h3>
-                            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ratione sequi necessitatibus dolorem architecto, dolorum quos!</p>
-                        </a>
-                        <!-- Single card end -->
-    
-                        <!-- Single card -->
-                        <a href="" class="card gallery_product filter all user-interface">
-                            <div class="card-header">
-                                <img src="{{ asset('Frontend') }}/assets/img/gallery/portfolio-9.png" alt="">
-                            </div>
-                            <h3>Resepin App - Illustration & UI Exploration</h3>
-                            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ratione sequi necessitatibus dolorem architecto, dolorum quos!</p>
-                        </a>
+                            <h3>{{ $portfolio->title }}</h3>
+                            <p>{!! Str::limit($service->description, 150) !!}</p>
+                        </a>     
+                        @endforeach
                         <!-- Single card end -->
                     </div>
                     <!-- Portfolio CardCards group end -->
@@ -292,14 +142,15 @@
                     <p class="sub-title text-center">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Blanditiis, explicabo!</p>
     
                     <div class="feedbacks">
+                        @foreach ($testimonials as $testimonila)
                         <div class="feedback-card fade">
                             <div class="img-wrapper">
-                                <img src="{{ asset('Frontend') }}/assets/img/gallery/person-1.png" alt="">
+                                <img src="{{ asset($testimonila->image) }}" alt="">
                             </div>
-                            <h3>Jack Dawson</h3>
-                            <span>CEO, Google</span>
+                            <h3>{{ $testimonila->name }}</h3>
+                            <span>{{ $testimonila->designation }}</span>
                             <div class="feedback-des">
-                                <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Molestiae similique aut cupiditate tenetur animi, facilis doloremque quo voluptate architecto minus dignissimos harum ut? Sunt id dicta velit perspiciatis esse nisi corporis itaque ducimus impedit repudiandae. Repellendus esse maiores fugiat perferendis fugit neque, quis nisi vel, repellat ipsam reprehenderit tenetur modi?</p>
+                                <p>{!! $testimonila->description !!}</p>
                                 <div class="quatiation-one">
                                     <img src="{{ asset('Frontend') }}/assets/img/gallery/quation-two.png" alt="">
                                 </div>
@@ -308,61 +159,13 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="feedback-card fade">
-                            <div class="img-wrapper">
-                                <img src="{{ asset('Frontend') }}/assets/img/gallery/person-2.png" alt="">
-                            </div>
-                            <h3>Adnan Khan</h3>
-                            <span>CEO, Google</span>
-                            <div class="feedback-des">
-                                <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Molestiae similique aut cupiditate tenetur animi, facilis doloremque quo voluptate architecto minus dignissimos harum ut? Sunt id dicta velit perspiciatis esse nisi corporis itaque ducimus impedit repudiandae. Repellendus esse maiores fugiat perferendis fugit neque, quis nisi vel, repellat ipsam reprehenderit tenetur modi?</p>
-                                <div class="quatiation-one">
-                                    <img src="{{ asset('Frontend') }}/assets/img/gallery/quation-two.png" alt="">
-                                </div>
-                                <div class="quatiation-two">
-                                    <img src="{{ asset('Frontend') }}/assets/img/gallery/quation-one.png" alt="">
-                                </div>
-                            </div>
-                        </div>
-                        <div class="feedback-card fade">
-                            <div class="img-wrapper">
-                                <img src="{{ asset('Frontend') }}/assets/img/gallery/person-3.png" alt="">
-                            </div>
-                            <h3>Jakline juci</h3>
-                            <span>CEO, Google</span>
-                            <div class="feedback-des">
-                                <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Molestiae similique aut cupiditate tenetur animi, facilis doloremque quo voluptate architecto minus dignissimos harum ut? Sunt id dicta velit perspiciatis esse nisi corporis itaque ducimus impedit repudiandae. Repellendus esse maiores fugiat perferendis fugit neque, quis nisi vel, repellat ipsam reprehenderit tenetur modi?</p>
-                                <div class="quatiation-one">
-                                    <img src="{{ asset('Frontend') }}/assets/img/gallery/quation-two.png" alt="">
-                                </div>
-                                <div class="quatiation-two">
-                                    <img src="{{ asset('Frontend') }}/assets/img/gallery/quation-one.png" alt="">
-                                </div>
-                            </div>
-                        </div>
-                        <div class="feedback-card fade">
-                            <div class="img-wrapper">
-                                <img src="{{ asset('Frontend') }}/assets/img/gallery/person-4.png" alt="">
-                            </div>
-                            <h3>Raisa Mejejabin</h3>
-                            <span>CEO, </span>
-                            <div class="feedback-des">
-                                <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Molestiae similique aut cupiditate tenetur animi, facilis doloremque quo voluptate architecto minus dignissimos harum ut? Sunt id dicta velit perspiciatis esse nisi corporis itaque ducimus impedit repudiandae. Repellendus esse maiores fugiat perferendis fugit neque, quis nisi vel, repellat ipsam reprehenderit tenetur modi?</p>
-                                <div class="quatiation-one">
-                                    <img src="{{ asset('Frontend') }}/assets/img/gallery/quation-two.png" alt="">
-                                </div>
-                                <div class="quatiation-two">
-                                    <img src="{{ asset('Frontend') }}/assets/img/gallery/quation-one.png" alt="">
-                                </div>
-                            </div>
-                        </div>
+                        @endforeach
                     </div>
                 </div>
                 <div style="text-align:center">
-                    <span class="dot" onclick="currentSlide(1)"></span> 
-                    <span class="dot" onclick="currentSlide(2)"></span> 
-                    <span class="dot" onclick="currentSlide(3)"></span> 
-                    <span class="dot" onclick="currentSlide(4)"></span> 
+                    @foreach ($testimonials as $testimonial)
+                    <span class="dot" onclick="currentSlide({{ $loop-> index + 1 }})"></span>    
+                    @endforeach
                   </div>
             </div>
         </section>
@@ -374,36 +177,11 @@
                 <div class="brand-content">
                     <div class="brand-slider">
                         <div class="slide-track">
+                            @foreach ($brands as $brand)
                             <div class="card">
-                                <img src="{{ asset('Frontend') }}/assets/img/brand/brand-1.png" alt="">
+                                <img src="{{ asset($brand->image) }}" alt="">
                             </div>
-                            <div class="card">
-                                <img src="{{ asset('Frontend') }}/assets/img/brand/brand-2.png" alt="">
-                            </div>
-                            <div class="card">
-                                <img src="{{ asset('Frontend') }}/assets/img/brand/brand-3.png" alt="">
-                            </div>
-                            <div class="card">
-                                <img src="{{ asset('Frontend') }}/assets/img/brand/brand-4.png" alt="">
-                            </div>
-                            <div class="card">
-                                <img src="{{ asset('Frontend') }}/assets/img/brand/brand-1.png" alt="">
-                            </div>
-                            <div class="card">
-                                <img src="{{ asset('Frontend') }}/assets/img/brand/brand-1.png" alt="">
-                            </div>
-                            <div class="card">
-                                <img src="{{ asset('Frontend') }}/assets/img/brand/brand-2.png" alt="">
-                            </div>
-                            <div class="card">
-                                <img src="{{ asset('Frontend') }}/assets/img/brand/brand-3.png" alt="">
-                            </div>
-                            <div class="card">
-                                <img src="{{ asset('Frontend') }}/assets/img/brand/brand-4.png" alt="">
-                            </div>
-                            <div class="card">
-                                <img src="{{ asset('Frontend') }}/assets/img/brand/brand-1.png" alt="">
-                            </div>
+                            @endforeach
                         </div>
                     </div>
                 </div>

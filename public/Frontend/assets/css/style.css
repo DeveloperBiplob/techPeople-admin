@@ -608,7 +608,7 @@ div#preloader-active {
 */
 .slider{
   height: 100vh;
-  background-image:url(../img/gallery/banner-01.png);
+  /* background-image:url(../img/gallery/banner-01.png); */
   background-repeat: no-repeat;
   background-position: center center;
   background-size: cover;

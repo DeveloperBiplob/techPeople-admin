@@ -1,40 +1,42 @@
 // NavBar---------------------------------
-window.onscroll = function() {myFunction()};
+window.onscroll = function () {
+    myFunction()
+};
 
 var navbar = document.getElementById("fixtNavbar");
 var sticky = navbar.offsetTop;
 
 function myFunction() {
-  if (window.pageYOffset >= sticky) {
-    navbar.classList.add("sticky")
-  } else {
-    navbar.classList.remove("sticky");
-  }
+    if (window.pageYOffset >= sticky) {
+        navbar.classList.add("sticky")
+    } else {
+        navbar.classList.remove("sticky");
+    }
 }
 
 // Requst Form-------------------------
 function showRequestForm() {
     var requestForm = document.getElementById("request-form");
     requestForm.style.display = "block";
-  }
+}
 
 function closerRequestForm() {
     var requestForm = document.getElementById("request-form");
     requestForm.style.display = "none";
 
-  }
+}
 
 //  Video Modal-----------------------
 function showVideoModal() {
     var testimonial = document.getElementById("video-modal");
     testimonial.style.display = "block";
-  }
+}
 
 function closeVideoModal() {
     var closeTestimonial = document.getElementById("video-modal");
     closeTestimonial.style.display = "none";
 
-  }
+}
 
 
 
@@ -47,7 +49,7 @@ function closeVideoModal() {
 //     showMenu.style. transition = "all .5s";
 // }
 
-function showMoileMenuOne(){
+function showMoileMenuOne() {
     document.getElementById('mobileDropdownOne').classList.toggle("mobile-dropdown-show");
     document.getElementById('mobileMenuIconOne').classList.toggle("roted180geg");
 }
@@ -62,15 +64,17 @@ function showFunction() {
         showMenu.style.right = "0";
 
     }
-  }
+}
 
 
 //   Carusal Butn-----
 const carousel = document.querySelector(".portfolio-btn-group"),
-firstImg = carousel.querySelectorAll("button")[0],
-arrowIcons = document.querySelectorAll(".wrapper i");
+    firstImg = carousel.querySelectorAll("button")[0],
+    arrowIcons = document.querySelectorAll(".wrapper i");
 
-let isDragStart = false, isDragging = false, prevPageX, prevScrollLeft, positionDiff;
+let isDragStart = false,
+    isDragging = false,
+    prevPageX, prevScrollLeft, positionDiff;
 
 const showHideIcons = () => {
     // showing and hiding prev/next icon according to carousel scroll left value
@@ -90,14 +94,14 @@ arrowIcons.forEach(icon => {
 
 const autoSlide = () => {
     // if there is no image left to scroll then return from here
-    if(carousel.scrollLeft - (carousel.scrollWidth - carousel.clientWidth) > -1 || carousel.scrollLeft <= 0) return;
+    if (carousel.scrollLeft - (carousel.scrollWidth - carousel.clientWidth) > -1 || carousel.scrollLeft <= 0) return;
 
     positionDiff = Math.abs(positionDiff); // making positionDiff value to positive
     let firstImgWidth = firstImg.clientWidth + 14;
     // getting difference value that needs to add or reduce from carousel left to take middle img center
     let valDifference = firstImgWidth - positionDiff;
 
-    if(carousel.scrollLeft > prevScrollLeft) { // if user is scrolling to the right
+    if (carousel.scrollLeft > prevScrollLeft) { // if user is scrolling to the right
         return carousel.scrollLeft += positionDiff > firstImgWidth / 3 ? valDifference : -positionDiff;
     }
     // if user is scrolling to the left
@@ -113,7 +117,7 @@ const dragStart = (e) => {
 
 const dragging = (e) => {
     // scrolling images/carousel to left according to mouse pointer
-    if(!isDragStart) return;
+    if (!isDragStart) return;
     e.preventDefault();
     isDragging = true;
     carousel.classList.add("dragging");
@@ -126,7 +130,7 @@ const dragStop = () => {
     isDragStart = false;
     carousel.classList.remove("dragging");
 
-    if(!isDragging) return;
+    if (!isDragging) return;
     isDragging = false;
     autoSlide();
 }
@@ -140,75 +144,87 @@ carousel.addEventListener("touchmove", dragging);
 document.addEventListener("mouseup", dragStop);
 carousel.addEventListener("touchend", dragStop);
 
+
+function colorChane(slug) {
+    let btnArray = [];
+    let filterBtns = document.querySelectorAll('.filter-button');
+    btnArray = [...btnArray, ...filterBtns];
+    btnArray.map(btn => {
+        if (btn?.id === slug) {
+            btn.classList.add('portfolio-btn-active')
+        } else {
+            btn.classList.remove('portfolio-btn-active')
+        }
+    })
+}
 // galary ------------------
 
-$(document).ready(function(){
+$(document).ready(function () {
 
-    $(".filter-button").click(function(){
+    $(".filter-button").click(function () {
         var value = $(this).attr('data-filter');
-        
-        if(value == "all")
-        {
+
+        if (value == "all") {
             //$('.filter').removeClass('hidden');
             $('.filter').show('1000');
-        }
-        else
-        {
+        } else {
             //    $('.filter[filter-item="'+value+'"]').removeClass('hidden');
             //    $(".filter").not('.filter[filter-item="'+value+'"]').addClass('hidden');
-            $(".filter").not('.'+value).hide('3000');
-            $('.filter').filter('.'+value).show('3000');
-            
+            $(".filter").not('.' + value).hide('3000');
+            $('.filter').filter('.' + value).show('3000');
+
         }
     });
-    
+
     if ($(".filter-button").removeClass("active")) {
-    $(this).removeClass("active");
+        $(this).removeClass("active");
     }
     $(this).addClass("active");
-    
+
+});
+
+
+// slider--------------------------------------
+let slideIndex = 0;
+showSlides();
+
+function showSlides() {
+    let i;
+    let slides = document.getElementsByClassName("feedback-card");
+    let dots = document.getElementsByClassName("dot");
+    for (i = 0; i < slides.length; i++) {
+        slides[i].style.display = "none";
+    }
+    slideIndex++;
+    if (slideIndex > slides.length) {
+        slideIndex = 1
+    }
+    for (i = 0; i < dots.length; i++) {
+        dots[i].className = dots[i].className.replace(" active", "");
+    }
+    slides[slideIndex - 1].style.display = "block";
+    dots[slideIndex - 1].className += " active";
+    setTimeout(showSlides, 5000); // Change image every 2 seconds
+}
+
+// Image Galery for Service Details--------------------------
+function imageGallery(smallImage) {
+    var fullImage = document.getElementById("imageBox");
+    var imageBorder = document.getElementsByClassName("image-card");
+    var imageSrc = fullImage.src = smallImage.src;
+    const bigImage = imageSrc.split("assets")[1]
+
+    Array.from(imageBorder).map((element) => {
+        // Accessing the img element within each div
+        var imgElement = element.querySelector('img');
+        var imgSrc = imgElement.getAttribute('src');
+        const imgSplitUrl = imgSrc.split("assets")[1];
+        if (imgSplitUrl === bigImage) {
+            element.style.border = "2px solid #29a159";
+        } else {
+            element.style.border = "2px solid #ddd";
+
+        }
     });
 
-
-    // slider--------------------------------------
-    let slideIndex = 0;
-    showSlides();
-    
-    function showSlides() {
-      let i;
-      let slides = document.getElementsByClassName("feedback-card");
-      let dots = document.getElementsByClassName("dot");
-      for (i = 0; i < slides.length; i++) {
-        slides[i].style.display = "none";  
-      }
-      slideIndex++;
-      if (slideIndex > slides.length) {slideIndex = 1}    
-      for (i = 0; i < dots.length; i++) {
-        dots[i].className = dots[i].className.replace(" active", "");
-      }
-      slides[slideIndex-1].style.display = "block";  
-      dots[slideIndex-1].className += " active";
-      setTimeout(showSlides, 5000); // Change image every 2 seconds
-    }
-
-    // Image Galery for Service Details--------------------------
-    function imageGallery(smallImage){
-        var fullImage = document.getElementById("imageBox");
-        var imageBorder = document.getElementsByClassName("image-card");
-        var imageSrc = fullImage.src = smallImage.src;
-        const bigImage = imageSrc.split("assets")[1]
-
-        Array.from(imageBorder).map((element) => {
-            // Accessing the img element within each div
-            var imgElement = element.querySelector('img');
-            var imgSrc = imgElement.getAttribute('src');
-            const imgSplitUrl = imgSrc.split("assets")[1];
-            if(imgSplitUrl === bigImage){
-                element.style.border = "2px solid #29a159";
-            }else{
-                element.style.border = "2px solid #ddd";
-
-            }
-        });
-        
-    }
+}
