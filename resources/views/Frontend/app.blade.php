@@ -18,6 +18,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100;500;700&family=Open+Sans:wght@300;400;500;700&family=Poppins:wght@200;300;400;500;700;900&display=swap" rel="stylesheet">
     <script src="https://kit.fontawesome.com/9f57283aa3.js" crossorigin="anonymous"></script>
+    @stack('css')
 </head>
 <body>
     <div class="main">
@@ -80,6 +81,16 @@
         </div>
     </header>
     <!-- Header End -->
+    @if(Session::has('success'))
+
+    <div id="successModal" style="position: fixed;top:20%;right:2%;background:#ffffff;color:green;z-index:999;padding:20px;font-size:20px;border-radius:5px;box-shadow: inset 0 -3em 3em rgb(0 200 0 / 30%),0 0 0 2px white,0.3em 0.3em 1em rgb(200 0 0 / 60%);">
+    <div style="display:flex;justify-content:space-between;gap:2em">
+        <span>{{ Session()->get('success') }}</span>
+        <span style="cursor: pointer" onclick="closeModal()"><i class="fa-solid fa-circle-xmark"></i></span>
+    </div>
+    </div>
+
+    @endif
 
     <div style="min-height: 90vh">
             <!-- App Content -->
@@ -201,6 +212,6 @@
     <script src="{{ asset('Frontend') }}/./assets/js/vendor/jquery-1.12.4.min.js"></script>
     <!-- Script Js -->
     <script src="{{ asset('Frontend') }}/./assets/js/script.js"></script>
-    
+    @stack('script')
     </body>
 </html>

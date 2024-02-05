@@ -201,25 +201,39 @@
                         <h1 class="title">Let's work with us</h1>
                         <p class="sub-title">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Blanditiis, explicabo!</p>
     
-                        <form action="">
+                        <form action="{{ route('contactUs') }}" method="POST">
+                            @csrf
+                            @method('POST')
                             <div class="row">
                                 <label for="name">Name</label>
-                                <input type="text" name="name" id="name" placeholder="Enter your name">
+                                <input type="text" name="name" id="name" placeholder="Enter your name" required>
                             </div>
+                            @error('name')
+                            <div id="emailHelp" class="form-text">{{ $message }}</div>
+                            @enderror
                             <div class="row">
                                 <label for="name">Phone</label>
-                                <input type="number" name="phone" id="phone" placeholder="Enter your phone">
+                                <input type="number" name="phone" id="phone" placeholder="Enter your phone" required>
                             </div>
+                            @error('phone')
+                            <div id="emailHelp" class="form-text">{{ $message }}</div>
+                            @enderror
                             <div class="row">
                                 <label for="name">Email</label>
-                                <input type="email" name="emial" id="emial" placeholder="Enter your email">
+                                <input type="email" name="email" id="emial" placeholder="Enter your email" required>
                             </div>
+                            @error('email')
+                            <div id="emailHelp" class="form-text">{{ $message }}</div>
+                            @enderror
                             <div class="row">
                                 <label for="name">Message</label>
-                                <textarea name="message" id="message" rows="4" placeholder="Enter your message"></textarea>
+                                <textarea name="message" id="message" rows="4" placeholder="Enter your message" required></textarea>
                             </div>
+                            @error('message')
+                            <div id="emailHelp" class="form-text">{{ $message }}</div>
+                            @enderror
                             <div class="row">
-                                <button class="btn">Submit</button>
+                                <button type="submit" class="btn">Submit</button>
                             </div>
                         </form>
                     </div>
@@ -228,3 +242,12 @@
         </section>
         <!-- Contact end -->
 @endsection
+@push('css')
+    <script>
+        function closeModal(){
+            document.querySelector("#successModal").style.display = 'none'
+        }
+
+        const myTimeout = setTimeout(closeModal, 5000);
+    </script>
+@endpush
