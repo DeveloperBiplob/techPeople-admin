@@ -119,10 +119,10 @@
                             @endif
                             <p>{{ $configer->companydetail }}</p>
                             <div class="social-icon">
-                                <a href="{{ $configer->facebook }}"><i class="fa-brands fa-facebook-f"></i></a>
-                                <a href="{{ $configer->twitter }}"><i class="fa-brands fa-twitter"></i></a>
-                                <a href="{{ $configer->youtube }}"><i class="fa-brands fa-youtube"></i></a>
-                                <a href="{{ $configer->instagram }}"><i class="fa-brands fa-instagram"></i></i></i></a>
+                                <a href="{{ $configer->facebook }}" target="_blank"><i class="fa-brands fa-facebook-f"></i></a>
+                                <a href="{{ $configer->twitter }}" target="_blank"><i class="fa-brands fa-twitter"></i></a>
+                                <a href="{{ $configer->youtube }}" target="_blank"><i class="fa-brands fa-youtube"></i></a>
+                                <a href="{{ $configer->instagram }}" target="_blank"><i class="fa-brands fa-instagram"></i></i></i></a>
                             </div>
                         </div>
                         <div class="col">

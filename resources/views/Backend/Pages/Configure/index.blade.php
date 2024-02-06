@@ -44,6 +44,10 @@
                     <td>{{ $configer->twitter ?? '' }}</td>
                 </tr>
                 <tr>
+                    <th>YouTube:</th>
+                    <td>{{ $configer->youtube ?? '' }}</td>
+                </tr>
+                <tr>
                     <th>Instagram:</th>
                     <td>{{ $configer->instagram ?? '' }}</td>
                 </tr>

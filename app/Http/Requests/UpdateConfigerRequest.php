@@ -22,12 +22,13 @@ class UpdateConfigerRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'image' => ['mimes:png'],
+            'logo' => ['mimes:png'],
             'phone' => ['numeric'],
             'email' => ['string', 'email'],
             'address' => ['string'],
             'facebook' => ['string'],
             'twitter' => ['string'],
+            'youtube' => ['string'],
             'instagram' => ['string'],
             'companydetail' => ['string'],
             'video' => ['string']

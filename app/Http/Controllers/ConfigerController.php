@@ -67,6 +67,7 @@ class ConfigerController extends Controller
                 'companydetail' => $request->companydetail,
                 'facebook' => $request->facebook,
                 'twitter' => $request->twitter,
+                'youtube' => $request->youtube,
                 'instagram' => $request->instagram,
                 'video' => $request->video,
                 'logo' => File::upload($request->file('logo'), 'Configuration')
@@ -80,6 +81,7 @@ class ConfigerController extends Controller
                 'companydetail' => $request->companydetail,
                 'facebook' => $request->facebook,
                 'twitter' => $request->twitter,
+                'youtube' => $request->youtube,
                 'instagram' => $request->instagram,
                 'video' => $request->video
             ]);

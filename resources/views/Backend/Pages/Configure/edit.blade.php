@@ -65,6 +65,13 @@
                         @enderror
                       </div>
                       <div class="mb-3">
+                        <label for="youtube" class="form-label">YouTube</label>
+                        <input type="text" name="youtube" class="form-control" id="youtube" value="{{ $configer->youtube }}">
+                        @error('youtube')
+                          <div id="emailHelp" class="form-text">{{ $message }}</div>
+                        @enderror
+                      </div>
+                      <div class="mb-3">
                         <label for="instagram" class="form-label">Instagram</label>
                         <input type="text" name="instagram" class="form-control" id="instagram" value="{{ $configer->instagram }}">
                         @error('instagram')
