@@ -1,3 +1,6 @@
+@php
+    $configer = App\Models\Configer::latest()->first();
+@endphp
 <!doctype html>
 <html class="no-js" lang="zxx">
 <head>
@@ -42,7 +45,11 @@
                 <div class="row">
                     <div class="col left">
                         <a href="{{ route('home')}}" class="logo">
+                            @if ($configer->logo)
+                            <img src="{{ asset($configer->logo) }}" alt="">
+                            @else
                             <img src="{{ asset("Frontend")}}/assets/img/logo/techpeople.png" alt="">
+                            @endif
                         </a>
                     </div>
                     <div class="col main-nev">
@@ -105,41 +112,45 @@
                 <div class="footer-content">
                     <div class="row">
                         <div class="col">
-                            <img src="./assets/img/logo/techpeople.png" alt="">
-                            <p>12 Years+ Experienced, 300+ Interior Design Construction & 500+ Interior Consultancy Done by Circle Interior Ltd. Currently No#1 Best Interior Design Company in Bangladesh</p>
+                            @if ($configer->logo)
+                            <img src="{{ asset($configer->logo) }}" alt="">
+                            @else
+                            <img src="{{ asset("Frontend")}}/assets/img/logo/techpeople.png" alt="">
+                            @endif
+                            <p>{{ $configer->companydetail }}</p>
                             <div class="social-icon">
-                                <a href="#"><i class="fa-brands fa-facebook-f"></i></a>
-                                <a href="#"><i class="fa-brands fa-twitter"></i></a>
-                                <a href="#"><i class="fa-brands fa-youtube"></i></a>
-                                <a href="#"><i class="fa-brands fa-instagram"></i></i></i></a>
+                                <a href="{{ $configer->facebook }}"><i class="fa-brands fa-facebook-f"></i></a>
+                                <a href="{{ $configer->twitter }}"><i class="fa-brands fa-twitter"></i></a>
+                                <a href="{{ $configer->youtube }}"><i class="fa-brands fa-youtube"></i></a>
+                                <a href="{{ $configer->instagram }}"><i class="fa-brands fa-instagram"></i></i></i></a>
                             </div>
                         </div>
                         <div class="col">
                             <h3>Quiq Menu</h3>
                             <ul>
-                                <li><a href="./index.html">Home</a></li>
-                                <li><a href="">Our Story</a></li>
-                                <li><a href="">What we do</a></li>
-                                <li><a href="">Research & Programes</a></li>
-                                <li><a href="">Out Team</a></li>
-                                <li><a href="">Governing Board</a></li>
+                                <li><a href="{{ route('home') }}">Home</a></li>
+                                <li><a href="{{ route('home') }}">Our Story</a></li>
+                                <li><a href="{{ route('home') }}">What we do</a></li>
+                                <li><a href="{{ route('home') }}">Research & Programes</a></li>
+                                <li><a href="{{ route('home') }}">Out Team</a></li>
+                                <li><a href="{{ route('home') }}">Governing Board</a></li>
 
                             </ul>
                         </div>
                         <div class="col">
                             <h3>Important Links</h3>
                             <ul>
-                                <li><a href="">Terms & Conditions</a></li>
-                                <li><a href="./about.html">About Us</a></li>
-                                <li><a href="./blog.html">blog</a></li>
+                                <li><a href="{{ route('home') }}">Terms & Conditions</a></li>
+                                <li><a href="{{ route('about') }}">About Us</a></li>
+                                <li><a href="{{ route('blog') }}">blog</a></li>
                             </ul>
                         </div>
                         <div class="col">
                             <h3>Company Details</h3>
                             <ul>
-                                <li class="footer-address"><i class="fa-solid fa-phone"></i><a href=""> +880 1684428110</a></li>
-                                <li class="footer-address"><i class="fa-solid fa-envelope"></i><a href=""> Interior@mail.com</a></li>
-                                <li class="footer-address"><i class="fa-solid fa-location-dot"></i> <a href="">House # 6/20 (12st Floor) Block # E, A/k Link Rood, Boshundhora, Dhaka -1212</a></li>
+                                <li class="footer-address"><i class="fa-solid fa-phone"></i><a href="tel:{{ $configer->phone }}"> {{ $configer->phone }}</a></li>
+                                <li class="footer-address"><i class="fa-solid fa-envelope"></i><a href="mailto:{{ $configer->email }}"> {{ $configer->email }}</a></li>
+                                <li class="footer-address"><i class="fa-solid fa-location-dot"></i> <a>{{ $configer->address }}</a></li>
                             </ul>
                         </div>
                     </div>
@@ -148,7 +159,7 @@
             <div class="footer-end">
                 <span>
                     <i class="fa-sharp fa-regular fa-copyright"></i>
-                    copyright 2024 techPeople, All rights reserved
+                    copyright <?php echo date("Y"); ?> techPeople, All rights reserved
                 </span>                    
             </div>
         </section>
@@ -212,7 +223,11 @@
             <i onclick="closeVideoModal()" class="fa-solid fa-xmark"></i>
         </div>
             <div class="video-modal-video">
+                @if ($configer->video)
+                <iframe width="100%" height="100%" src="{{ $configer->video }}" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+                @else
                 <iframe width="100%" height="100%" src="https://www.youtube.com/embed/Vb0dG-2huJE?autoplay=1&mute=1" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+                @endif
             </div>
         </div>
     </div>
