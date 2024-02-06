@@ -38,6 +38,7 @@ Route::get('portfolio', [PortfolioPageController::class, 'index'])->name('portfo
 Route::get('blog', [BlogPageController::class, 'index'])->name('blog');
 Route::get('details', [BlogDetailsPageController::class, 'index'])->name('blogdetails');
 Route::get('contact', [ContactPageController::class, 'index'])->name('contact');
+Route::post('/contact-us', [ContactController::class, 'store'])->name('contactUs');
 
 Route::get('/dashboard', function () {
     return view('Backend.Pages.dashboard');
@@ -64,7 +65,9 @@ Route::prefix('dashboard')->middleware('auth')->group(function () {
     Route::resource('testimonial', TestimonialController::class);
     Route::resource('brand', BrandController::class);
 
-    Route::post('/contact-us', [ContactController::class, 'store'])->name('contactUs');
+    Route::get('/contact', [ContactController::class, 'index'])->name('contactContent');
+    Route::get('/contact/show/{id}', [ContactController::class, 'show'])->name('contactShow');
+    Route::delete('/contact/delete/{id}', [ContactController::class, 'destroy'])->name('contactDelete');
 });
 
 require __DIR__.'/auth.php';
