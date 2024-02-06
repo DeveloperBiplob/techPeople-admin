@@ -167,28 +167,40 @@
             <i onclick="closerRequestForm()" class="fa-solid fa-xmark"></i>
         </div>
         <div class="request-form-body">
-            <form action="#">
+            <form action="{{ route('contactUs') }}" method="POST">
+                @csrf
+                @method('POST')
                 <div class="row">
                     <label for="name">Name</label>
-                    <input type="text" name="name" id="" class="name" placeholder="Enter Your Full Name"> 
+                    <input type="text" name="name" id="name" placeholder="Enter your name" required>
                 </div>
+                @error('name')
+                <div id="emailHelp" class="form-text">{{ $message }}</div>
+                @enderror
+                <div class="row">
+                    <label for="name">Phone</label>
+                    <input type="number" name="phone" id="phone" placeholder="Enter your phone" required>
+                </div>
+                @error('phone')
+                <div id="emailHelp" class="form-text">{{ $message }}</div>
+                @enderror
                 <div class="row">
                     <label for="name">Email</label>
-                    <input type="email" name="email" id="" class="name" placeholder="Enter Your Email Address"> 
+                    <input type="email" name="email" id="emial" placeholder="Enter your email" required>
                 </div>
+                @error('email')
+                <div id="emailHelp" class="form-text">{{ $message }}</div>
+                @enderror
                 <div class="row">
-                    <label for="phone">Phone</label>
-                    <input type="text" name="phone" id="" class="phone" placeholder="Enter Your Full Phone"> 
+                    <label for="name">Message</label>
+                    <textarea name="message" id="message" rows="4" placeholder="Enter your message" required></textarea>
                 </div>
+                @error('message')
+                <div id="emailHelp" class="form-text">{{ $message }}</div>
+                @enderror
                 <div class="row">
-                    <label for="subbject">Subbject</label>
-                    <input type="text" name="subbject" id="" class="subbject" placeholder="Enter Your Full Subbject"> 
+                    <button type="submit" class="btn">Submit</button>
                 </div>
-                <div class="row">
-                    <label for="message">Message</label>
-                    <textarea name="message" class="message" id="" placeholder="Enter Your Message"></textarea> 
-                </div>
-                <button class="btn">Send Message</button>
             </form>
         </div>
     </div>
