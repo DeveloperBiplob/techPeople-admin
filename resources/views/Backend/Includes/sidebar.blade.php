@@ -73,6 +73,12 @@
               <p>Message <i class="right fas fa-angle-right"></i></p>
             </a>
           </li>
+          <li class="nav-item">
+            <a href="{{ route('configer.index') }}" class="nav-link {{ Route::is('configer.index') || Route::is('configer.edit')  ? 'active' : '' }}">
+              <i class="fa-solid fa-screwdriver-wrench mr-1"></i>
+              <p>Configuration <i class="right fas fa-angle-right"></i></p>
+            </a>
+          </li>
           {{-- <li class="nav-item has-treeview menu-open">
             <a href="#" class="nav-link">
               <i class="nav-icon far fa-circle nav-icon"></i>

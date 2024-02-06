@@ -6,6 +6,7 @@ use App\Http\Controllers\BlogPageController;
 use App\Http\Controllers\BlogDetailsPageController;
 use App\Http\Controllers\BrandController;
 use App\Http\Controllers\CategoryController;
+use App\Http\Controllers\ConfigerController;
 use App\Http\Controllers\ContactController;
 use App\Http\Controllers\ContactPageController;
 use App\Http\Controllers\HomePageController;
@@ -68,6 +69,8 @@ Route::prefix('dashboard')->middleware('auth')->group(function () {
     Route::get('/contact', [ContactController::class, 'index'])->name('contactContent');
     Route::get('/contact/show/{id}', [ContactController::class, 'show'])->name('contactShow');
     Route::delete('/contact/delete/{id}', [ContactController::class, 'destroy'])->name('contactDelete');
+
+    Route::resource('configer', ConfigerController::class);
 });
 
 require __DIR__.'/auth.php';
