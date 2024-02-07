@@ -17,6 +17,9 @@ class DatabaseSeeder extends Seeder
     {
         $this->call([
             SliderSeeder::class,
+            ConfigerSeeder::class,
+            OverviewSeeder::class,
+            AboutSeeder::class,
         ]);
 
         User::create([

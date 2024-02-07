@@ -9,7 +9,7 @@ class Portfolio extends Model
 {
     use HasFactory;
 
-    protected $fillable = ['category_id', 'title', 'slug', 'description', 'image'];
+    protected $fillable = ['category_id', 'title', 'slug', 'link', 'description', 'image'];
 
      protected $with = ['category'];
 

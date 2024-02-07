@@ -24,6 +24,7 @@ class UpdatePortfolioRequest extends FormRequest
         return [
             'category_id' => ['required'],
             'title' => "required|unique:portfolios,title,{$this->portfolio->id}",
+            'link' => ['required', 'string'],
             'description' => ['required', 'string'],
             'image' => ['mimes:png,jpg, jpeg']
         ];

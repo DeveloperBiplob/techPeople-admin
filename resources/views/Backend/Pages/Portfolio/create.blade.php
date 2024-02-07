@@ -30,6 +30,13 @@
                         <div id="emailHelp" class="form-text">{{ $message }}</div>
                       @enderror
                     </div>
+                    <div class="mb-3">
+                      <label for="link" class="form-label">Project Link</label>
+                      <input type="text" name="link" class="form-control" id="link" placeholder="Entr a Project Link Here...">
+                      @error('link')
+                        <div id="emailHelp" class="form-text">{{ $message }}</div>
+                      @enderror
+                    </div>
                       <div class="mb-3">
                         <label for="description" class="form-label">Description</label>
                         <textarea name="description" class="form-control" id="description" rows="3" placeholder="Entr your description"></textarea>
@@ -38,6 +45,7 @@
                         @enderror
                       </div>
                       <div class="mb-3">
+                        <label for="image" class="form-label">Image</label>
                         <div class="custom-file">
                             <input type="file" name="image" class="custom-file-input" id="image">
                             <label class="custom-file-label" for="image">Choose file</label>

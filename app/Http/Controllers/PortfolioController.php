@@ -38,6 +38,7 @@ class PortfolioController extends Controller
             'category_id' => $request->category_id,
             'title' => $request->title,
             'slug' => Str::slug($request->title),
+            'link' => $request->link,
             'description' => $request->description,
             'image' => File::upload($request->file('image'), 'Portfolios')
         ]);
@@ -76,6 +77,7 @@ class PortfolioController extends Controller
         $portfolio->update([
             'title' => $request->title,
             'slug' => Str::slug($request->title),
+            'link' => $request->link,
             'description' => $request->description,
             'category_id' => $request->category_id,
             'image' => File::upload($file, 'Portfolios')
@@ -85,6 +87,7 @@ class PortfolioController extends Controller
             $portfolio->update([
                 'title' => $request->title,
                 'slug' => Str::slug($request->title),
+                'link' => $request->link,
                 'description' => $request->description,
                 'category_id' => $request->category_id
             ]);

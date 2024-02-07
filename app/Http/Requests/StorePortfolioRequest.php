@@ -24,6 +24,7 @@ class StorePortfolioRequest extends FormRequest
         return [
             'category_id' => ['required'],
             'title' => ['required', 'unique:portfolios', 'max:100'],
+            'link' => ['required', 'string'],
             'description' => ['required', 'string'],
             'image' => ['required','mimes:png,jpg, jpeg']
         ];

@@ -33,7 +33,7 @@
                         <img class="about-img-minidevice" src="{{ asset('Frontend') }}/assets/img/gallery/about.png" alt="">
                         <!-- Mini Device end-->
     
-                        <p>{{ $companyDetails->description }}</p>   
+                        <p>{!! $companyDetails->description !!}</p>   
 
                         <a href="{{ route('about') }}" class="btn">Learn More</a>
     
@@ -117,7 +117,7 @@
                     <div class="portfolio-cards">
                         <!-- Single card -->
                         @foreach ($portfolios as $portfolio)
-                        <a href="" class="card gallery_product filter all {{ $portfolio->category->slug }}">
+                        <a target="_blank" href="{{ $portfolio->link }}" class="card gallery_product filter all {{ $portfolio->category->slug }}">
                             <div class="card-header">
                                 <img src="{{ asset($portfolio->image) }}" alt="">
                             </div>

@@ -30,6 +30,13 @@
                         <div id="emailHelp" class="form-text">{{ $message }}</div>
                       @enderror
                     </div>
+                    <div class="mb-3">
+                      <label for="link" class="form-label">Project Link</label>
+                      <input type="text" name="link" class="form-control" id="link" value="{{ $portfolio->link }}">
+                      @error('link')
+                        <div id="emailHelp" class="form-text">{{ $message }}</div>
+                      @enderror
+                    </div>
                       <div class="mb-3">
                         <label for="description" class="form-label">Description</label>
                         <textarea name="description" class="form-control" id="description" rows="3">{!! $portfolio->description !!}</textarea>

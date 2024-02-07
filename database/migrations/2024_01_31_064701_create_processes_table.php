@@ -13,7 +13,7 @@ return new class extends Migration
     {
         Schema::create('processes', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('service_id')->constrained('services')->onDelete('cascade');
+            $table->foreignId('service_id')->constrained('services')->onDelete('cascade')->onUpdate('cascade');
             $table->string('title');
             $table->string('slug');
             $table->text('description');
