@@ -2,9 +2,9 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Frontend\About;
-use App\Http\Requests\StoreAboutRequest;
-use App\Http\Requests\UpdateAboutRequest;
+use App\Models\About;
+use App\Models\CompanyDetail;
+use App\Models\Gallery;
 
 class AboutPageController extends Controller
 {
@@ -13,7 +13,10 @@ class AboutPageController extends Controller
      */
     public function index()
     {
-        return view('Frontend.pages.about');
+        $companyDetail = CompanyDetail::first();
+        $gallery = Gallery::first();
+        $abouts = About::get();
+        return view('Frontend.pages.about', compact(['companyDetail', 'gallery', 'abouts']));
     }
 
 
