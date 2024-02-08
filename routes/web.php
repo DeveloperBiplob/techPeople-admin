@@ -41,7 +41,7 @@ Route::get('about', [AboutPageController::class, 'index'])->name('about');
 Route::get('service', [ServicePageController::class, 'index'])->name('service');
 Route::get('portfolio', [PortfolioPageController::class, 'index'])->name('portfolio');
 Route::get('blog', [BlogPageController::class, 'index'])->name('blog');
-Route::get('details', [BlogDetailsPageController::class, 'index'])->name('blogdetails');
+Route::get('blog/details/{post}', [BlogDetailsPageController::class, 'index'])->name('blogdetails');
 Route::get('contact', [ContactPageController::class, 'index'])->name('contact');
 Route::post('/contact-us', [ContactController::class, 'store'])->name('contactUs');
 

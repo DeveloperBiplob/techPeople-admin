@@ -31,7 +31,7 @@
                         <div class="blg-footer">
                             {{-- <a href=""><i class="fa-regular fa-comment"></i> 50 Comments</a> --}}
                             <a> {{ $randomPost->created_at->diffForHumans() }}</a>
-                            <a href="./blog-details.html" class="light-btn">Read More <i class="fa-solid fa-arrow-right"></i></a>
+                            <a href="{{ route('blogdetails', $randomPost->slug) }}" class="light-btn">Read More <i class="fa-solid fa-arrow-right"></i></a>
                         </div>
                     </div>
                 </div>
@@ -57,7 +57,7 @@
                                 </div>
                             </div>
                             <div class="right">
-                                <h4>{!! Str::limit($randomPost->title, 50) !!}</h4>
+                                <h4>{!! Str::limit($latestPost->title, 50) !!}</h4>
                                 <span><i class="fa-solid fa-calendar-days"></i> {{ $latestPost->created_at->format('d M Y') }}</span>
                             </div>
                         </a>

@@ -14,31 +14,23 @@
                 <div class="card">
                     <div class="blg-card-left">
                         <div class="blg-img-wrapper">
-                            <img src="{{ asset('Frontend')}}/assets/img/gallery/about-4.png" alt="">
+                            <img src="{{ asset($post->image)}}" alt="">
                             <div class="blg-date">
                                 <span>
-                                    <h3>30</h3>
+                                    <h3>{{ $post->created_at->format('d') }}</h3>
                                 </span>
-                                <span>Oct</span>
+                                <span>{{ $post->created_at->format('M') }}</span>
                             </div>
                         </div>
                     </div>
                     <div class="blg-card-right">
-                        <span>BUSINESS VISA</span>
-                        <h3>Various versions have evols over the years</h3>
-                        <p style="margin-bottom: 20px;opacity: .7;">There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised words which don't look even more slightly believable. If you are going to use a passage of Lorem Ipsum, you need to be sure there isn't anything embarrassing hidden in the middle of text. All the Lorem Ipsum generators on the Internet tend to repeat predefined chunks.</p>
-
-                        <p style="margin-bottom: 20px;opacity: .7;">By injected humour, or randomised words which don't look even more slightly believable. If you are going to use a passage of Lorem Ipsum, you need to be sure there isn't anything embarrassing hidden in the middle of text.</p>
-
-                        <p style="margin-bottom: 20px;opacity: .7;">All the Lorem Ipsum generators on the Internet tend to repeat predefined chunks as necessary, making this the first true generator on the Internet it uses a dictionary of over latin words, combined with a handful of model sentence structures.</p>
-
-                        <p style="margin-bottom: 20px;opacity: .7;">But the majority have suffered alteration in some form, by injected humour, or randomised odds which don't look even more slightly believable. If you are going to use a passage of Lorem sum, you need to be sure there isn't anything embarrassing hidden in the middle of the Lorem Ipsum generators on the Internet tend to repeat predefined chunks.</p>
-
-                        <p style="margin-bottom: 20px;opacity: .7;">Many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised words which don't look even more slightly believable. If you are going to use a passage of Lorem Ipsum, you need to be sure there isn't anything embarrassing hidden in the middle of text. All the Lorem Ipsum generators on the nternet tend to repeat predefined chunks.</p>
-
-                        <p style="margin-bottom: 20px;opacity: .7;">A passage of Lorem Ipsum, you need to be sure there isn't anything embarrassing hidden in the psum generators on the nternet tend to repeat predefined chunks.</p>
+                        <span>{{ $post->category->name }}</span>
+                        <h3>{{ $post->title }}</h3>
+                        <div style="margin-bottom: 20px;opacity: .8;">
+                            {!! $post->description !!}
+                        </div>
                         <div class="blg-detail-footer">
-                            <a href=""><b>TAGS:</b> Non-Immigration, Business, Travel</a>
+                            <a><b>TAGS:</b> @foreach ($post->tags as $tag) {{ $tag->name }} / @endforeach</a>
                             <div class="social-media-group">
                                 <p>SHARE</p>
                                 <a href="" class="share-socialmedia"><i class="fa-brands fa-facebook-f"></i></a>
@@ -50,50 +42,30 @@
                 </div>
             </div>
             <div class="blog-right">
-                <div class="row">
+                {{-- <div class="row">
                     <form action="">
                         <input type="text" placeholder="Search Here.....">
                         <button type="submit"><i class="fa-solid fa-magnifying-glass"></i></button>
                     </form>
-                </div>
+                </div> --}}
                 <div class="row">
                     <div class="blog-right-titile">
                         <h3>RECENT NEWS</h3>
                     </div>
                     <div class="latest-blog">
+                        @foreach ($latestPosts as $latestPost)
                         <a class="card" href="./blog-details.html">
                             <div class="left">
                                 <div class="blg-img-wrapper">
-                                    <img src="{{ asset('Frontend')}}/assets/img/gallery/about-4.png" alt="">
+                                    <img src="{{ asset($latestPost->image)}}" alt="">
                                 </div>
                             </div>
                             <div class="right">
-                                <h4>Simply dummy text offs the printing</h4>
-                                <span><i class="fa-solid fa-calendar-days"></i> Feb-20, 2019</span>
+                                <h4>{!! Str::limit($latestPost->title, 50) !!}</h4>
+                                <span><i class="fa-solid fa-calendar-days"></i> {{ $latestPost->created_at->format('d M Y') }}</span>
                             </div>
                         </a>
-                        <a class="card" href="./blog-details.html">
-                            <div class="left">
-                                <div class="blg-img-wrapper">
-                                    <img src="{{ asset('Frontend')}}/assets/img/gallery/about-4.png" alt="">
-                                </div>
-                            </div>
-                            <div class="right">
-                                <h4>Simply dummy text offs the printing</h4>
-                                <span><i class="fa-solid fa-calendar-days"></i> Feb-20, 2019</span>
-                            </div>
-                        </a>
-                        <a class="card" href="./blog-details.html">
-                            <div class="left">
-                                <div class="blg-img-wrapper">
-                                    <img src="{{ asset('Frontend')}}/assets/img/gallery/about-4.png" alt="">
-                                </div>
-                            </div>
-                            <div class="right">
-                                <h4>Simply dummy text offs the printing</h4>
-                                <span><i class="fa-solid fa-calendar-days"></i> Feb-20, 2019</span>
-                            </div>
-                        </a>
+                        @endforeach
                     </div>
                 </div>
                 <div class="row">
@@ -101,12 +73,9 @@
                         <h3>CATEGORIES</h3>
                     </div>
                     <div class="category">
-                        <ul><li><a href="">Travel & Tourism Visa</a></li></ul>
-                        <ul><li><a href="">Education Visa</a></li></ul>
-                        <ul><li><a href="">Worker Visa</a></li></ul>
-                        <ul><li><a href="">Immigration Visa</a></li></ul>
-                        <ul><li><a href="">Hoj & Omra Visa</a></li></ul>
-                        <ul><li><a href="">Business Visa</a></li></ul>
+                        @foreach ($categories as $category)
+                        <ul><li><a href="">{{ $category->name }}</a></li></ul>
+                        @endforeach
                     </div>
                 </div>
                 <div class="row">
@@ -114,14 +83,12 @@
                         <h3>TAGS</h3>
                     </div>
                     <div class="tags">
-                        <a href="">Travel</a>
-                        <a href="">Immigration</a>
-                        <a href="">Business</a>
-                        <a href="">Education</a>
-                        <a href="">Non-Immigration</a>
+                        @foreach ($tags as $tag)
+                        <a href="">{{ $tag->name }}</a>      
+                        @endforeach
                     </div>
                 </div>
-                <div class="row">
+                {{-- <div class="row">
                     <div class="blog-right-titile">
                         <h3>Subscribe</h3>
                         <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Iste, deleniti.</p>
@@ -132,7 +99,7 @@
                             <button class="subscribe-btn">Subscribe</button>
                         </form>
                     </div>
-                </div>
+                </div> --}}
             </div>
         </div>
         <!-- Blog Witter--- -->
