@@ -9,6 +9,7 @@ use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\ConfigerController;
 use App\Http\Controllers\ContactController;
 use App\Http\Controllers\ContactPageController;
+use App\Http\Controllers\GalleryController;
 use App\Http\Controllers\HomePageController;
 use App\Http\Controllers\OverviewController;
 use App\Http\Controllers\PortfolioController;
@@ -71,6 +72,7 @@ Route::prefix('dashboard')->middleware('auth')->group(function () {
     Route::delete('/contact/delete/{id}', [ContactController::class, 'destroy'])->name('contactDelete');
 
     Route::resource('configer', ConfigerController::class);
+    Route::resource('gallery', GalleryController::class);
 });
 
 require __DIR__.'/auth.php';

@@ -20,6 +20,7 @@ class DatabaseSeeder extends Seeder
             ConfigerSeeder::class,
             OverviewSeeder::class,
             AboutSeeder::class,
+            GallerySeeder::class,
         ]);
 
         User::create([

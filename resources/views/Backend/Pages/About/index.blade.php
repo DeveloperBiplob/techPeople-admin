@@ -43,6 +43,47 @@
               </div>
         </div>
     </div>
+    <div class="card">
+        <div class="card-header">
+            <div class="d-flex justify-content-between align-items-center">
+                <h3 class="fw-bolder">About Image Gallery</h3>
+                <a href="{{ route('gallery.edit', $gallery->id) }}" class="btn btn-md btn-success"><i class="fa-solid fa-plus mr-1"></i> Update</a>
+            </div>
+        </div>
+        <div class="card-body">
+            <div class="table-responsive">
+              <table class="table table-bordered">
+                <tr>
+                  <th>01</th>
+                    <th>Image One</th>
+                    <td>
+                      <div style="width: 100px; height:50px; overflow:hidden;">
+                       <img width="100%" src="{{ asset($gallery->image_one ?? '') }}" alt="">
+                      </div>
+                   </td>
+                </tr>
+                <tr>
+                  <th>02</th>
+                    <th>Image Two</th>
+                    <td>
+                      <div style="width: 100px; height:50px; overflow:hidden;">
+                       <img width="100%" src="{{ asset($gallery->image_two ?? '') }}" alt="">
+                      </div>
+                   </td>
+                </tr>
+                <tr>
+                  <th>03</th>
+                    <th>Image Three</th>
+                    <td>
+                      <div style="width: 100px; height:50px; overflow:hidden;">
+                       <img width="100%" src="{{ asset($gallery->image_three ?? '') }}" alt="">
+                      </div>
+                   </td>
+                </tr>
+            </table>
+              </div>
+        </div>
+    </div>
     
     <div class="card">
         <div class="card-header">

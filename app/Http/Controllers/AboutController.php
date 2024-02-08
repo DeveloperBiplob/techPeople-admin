@@ -8,6 +8,7 @@ use App\Models\About;
 use App\Http\Requests\StoreAboutRequest;
 use App\Http\Requests\UpdateAboutRequest;
 use App\Models\CompanyDetail;
+use App\Models\Gallery;
 use Illuminate\Http\Request;
 
 class AboutController extends Controller
@@ -17,9 +18,10 @@ class AboutController extends Controller
      */
     public function index()
     {
+        $gallery = Gallery::first();
         $companyDetail = CompanyDetail::first();
         $abouts = About::get();
-        return view('Backend.Pages.About.index', compact('abouts', 'companyDetail'));
+        return view('Backend.Pages.About.index', compact('abouts', 'companyDetail', 'gallery'));
     }
 
     /**
