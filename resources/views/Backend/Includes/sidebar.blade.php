@@ -73,7 +73,7 @@
               <p>Message <i class="right fas fa-angle-right"></i></p>
             </a>
           </li>
-          <li class="nav-item has-treeview {{ Route::is('blogcategory.index') || Route::is('tag.index') ? 'menu-open' : '' }}">
+          <li class="nav-item has-treeview {{ Route::is('blogcategory.index') || Route::is('tag.index') || Route::is('post.index') || Route::is('post.create') ? 'menu-open' : '' }}">
             <a class="nav-link">
               <i class="fa-solid fa-blog mr-1"></i>
               <p>
@@ -95,7 +95,7 @@
                 </a>
               </li>
               <li class="nav-item">
-                <a href="./index3.html" class="nav-link">
+                <a href="{{ route('post.index') }}" class="nav-link {{ Route::is('post.index') ? 'active' : '' }}">
                   <i class="fa-brands fa-blogger-b mr-1"></i>
                   <p>Posts</p>
                 </a>

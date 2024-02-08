@@ -15,6 +15,7 @@ use App\Http\Controllers\HomePageController;
 use App\Http\Controllers\OverviewController;
 use App\Http\Controllers\PortfolioController;
 use App\Http\Controllers\PortfolioPageController;
+use App\Http\Controllers\PostController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\ServiceController;
 use App\Http\Controllers\ServicePageController;
@@ -78,6 +79,8 @@ Route::prefix('dashboard')->middleware('auth')->group(function () {
 
     Route::resource('blogcategory', BlogCategoryController::class);
     Route::resource('tag', TagController::class);
+    Route::resource('post', PostController::class);
+    Route::get('/post-status/{slug}', [PostController::class, 'postStatus'])->name('post-status');
 });
 
 require __DIR__.'/auth.php';
