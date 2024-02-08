@@ -2,9 +2,8 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Frontend\Portfolio;
-use App\Http\Requests\StorePortfolioRequest;
-use App\Http\Requests\UpdatePortfolioRequest;
+use App\Models\Category;
+use App\Models\Portfolio;
 
 class PortfolioPageController extends Controller
 {
@@ -13,7 +12,10 @@ class PortfolioPageController extends Controller
      */
     public function index()
     {
-        return view('Frontend.pages.portfolio');
+        $data = [];
+        $data['categories'] = Category::latest()->get();
+        $data['portfolios'] = Portfolio::latest()->get();
+        return view('Frontend.pages.portfolio', $data);
     }
 
 

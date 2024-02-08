@@ -122,7 +122,7 @@
                                 <img src="{{ asset($portfolio->image) }}" alt="">
                             </div>
                             <h3>{{ $portfolio->title }}</h3>
-                            <p>{!! Str::limit($service->description, 150) !!}</p>
+                            <p>{!! Str::limit($portfolio->description, 150) !!}</p>
                         </a>     
                         @endforeach
                         <!-- Single card end -->
