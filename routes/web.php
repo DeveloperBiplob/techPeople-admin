@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\AboutController;
 use App\Http\Controllers\AboutPageController;
+use App\Http\Controllers\BlogCategoryController;
 use App\Http\Controllers\BlogPageController;
 use App\Http\Controllers\BlogDetailsPageController;
 use App\Http\Controllers\BrandController;
@@ -19,6 +20,7 @@ use App\Http\Controllers\ServiceController;
 use App\Http\Controllers\ServicePageController;
 use App\Http\Controllers\SliderController;
 use App\Http\Controllers\ProcessController;
+use App\Http\Controllers\TagController;
 use App\Http\Controllers\TestimonialController;
 use Illuminate\Support\Facades\Route;
 
@@ -73,6 +75,9 @@ Route::prefix('dashboard')->middleware('auth')->group(function () {
 
     Route::resource('configer', ConfigerController::class);
     Route::resource('gallery', GalleryController::class);
+
+    Route::resource('blogcategory', BlogCategoryController::class);
+    Route::resource('tag', TagController::class);
 });
 
 require __DIR__.'/auth.php';

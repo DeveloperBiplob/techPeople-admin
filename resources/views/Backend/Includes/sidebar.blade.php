@@ -73,15 +73,9 @@
               <p>Message <i class="right fas fa-angle-right"></i></p>
             </a>
           </li>
-          <li class="nav-item">
-            <a href="{{ route('configer.index') }}" class="nav-link {{ Route::is('configer.index') || Route::is('configer.edit')  ? 'active' : '' }}">
-              <i class="fa-solid fa-screwdriver-wrench mr-1"></i>
-              <p>Configuration <i class="right fas fa-angle-right"></i></p>
-            </a>
-          </li>
-          {{-- <li class="nav-item has-treeview menu-open">
-            <a href="#" class="nav-link">
-              <i class="nav-icon far fa-circle nav-icon"></i>
+          <li class="nav-item has-treeview {{ Route::is('blogcategory.index') || Route::is('tag.index') ? 'menu-open' : '' }}">
+            <a class="nav-link">
+              <i class="fa-solid fa-blog mr-1"></i>
               <p>
                 Blogs
                 <i class="right fas fa-angle-left"></i>
@@ -89,25 +83,31 @@
             </a>
             <ul class="nav nav-treeview">
               <li class="nav-item">
-                <a href="./index.html" class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
+                <a href="{{ route('blogcategory.index') }}" class="nav-link {{ Route::is('blogcategory.index') ? 'active' : '' }}">
+                  <i class="fa-solid fa-list mr-1"></i>
                   <p>Categories</p>
                 </a>
               </li>
               <li class="nav-item">
-                <a href="./index2.html" class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
+                <a href="{{ route('tag.index') }}" class="nav-link {{ Route::is('tag.index') ? 'active' : '' }}">
+                  <i class="fa-solid fa-tags mr-1"></i>
                   <p>Tags</p>
                 </a>
               </li>
               <li class="nav-item">
                 <a href="./index3.html" class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
+                  <i class="fa-brands fa-blogger-b mr-1"></i>
                   <p>Posts</p>
                 </a>
               </li>
             </ul>
-          </li> --}}
+          </li>
+          <li class="nav-item">
+            <a href="{{ route('configer.index') }}" class="nav-link {{ Route::is('configer.index') || Route::is('configer.edit')  ? 'active' : '' }}">
+              <i class="fa-solid fa-screwdriver-wrench mr-1"></i>
+              <p>Configuration <i class="right fas fa-angle-right"></i></p>
+            </a>
+          </li>
         </ul>
       </nav>
       <!-- /.sidebar-menu -->
