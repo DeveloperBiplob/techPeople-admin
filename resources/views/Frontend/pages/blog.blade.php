@@ -27,7 +27,7 @@
                     <div class="blg-card-right">
                         <span>{{ $randomPost->category->name }}</span>
                         <h3>{{ $randomPost->title}}</h3>
-                        <p>{!! Str::limit($randomPost->description, 300) !!}</p>
+                        {{-- <p>{!! Str::limit($randomPost->description, 300) !!}</p> --}}
                         <div class="blg-footer">
                             {{-- <a href=""><i class="fa-regular fa-comment"></i> 50 Comments</a> --}}
                             <a> {{ $randomPost->created_at->diffForHumans() }}</a>
@@ -50,7 +50,7 @@
                     </div>
                     <div class="latest-blog">
                         @foreach ($latestPosts as $latestPost)
-                        <a class="card" href="./blog-details.html">
+                        <a class="card" href="{{ route('blogdetails', $latestPost->slug) }}">
                             <div class="left">
                                 <div class="blg-img-wrapper">
                                     <img src="{{ asset($latestPost->image)}}" alt="">
