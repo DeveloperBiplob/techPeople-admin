@@ -17,60 +17,19 @@
 
                 <!-- Service group -->
                 <div class="services">
+                    @forelse ($services as $service)
                     <div class="card">
                         <div class="numbaring">
-                            <h1>01</h1>
+                            <h1>0{{ $loop-> index + 1 }}</h1>
                         </div>
-                        <img src="{{ asset('Frontend')}}/assets/img/service/service-icon-1.png" alt="">
-                        <h3>Modern Website Design</h3>
-                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Provident voluptates, veritatis nisi quas excepturi debitis</p>
+                        <img src="{{ asset($service->image) }}" alt="">
+                        <h3>{{ $service->title }}</h3>
+                        <p>{!! $service->description !!}</p>
                         <a href="">Read More...</a>
                     </div>
-                    <div class="card">
-                        <div class="numbaring">
-                            <h1>02</h1>
-                        </div>
-                        <img src="{{ asset('Frontend')}}/assets/img/service/service-icon-2.jpg" alt="">
-                        <h3>Modern Website Design</h3>
-                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Provident voluptates, veritatis nisi quas excepturi debitis</p>
-                        <a href="">Read More...</a>
-                    </div>
-                    <div class="card">
-                        <div class="numbaring">
-                            <h1>03</h1>
-                        </div>
-                        <img src="{{ asset('Frontend')}}/assets/img/service/service-icon-3.png" alt="">
-                        <h3>Modern Website Design</h3>
-                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Provident voluptates, veritatis nisi quas excepturi debitis</p>
-                        <a href="">Read More...</a>
-                    </div>
-                    <div class="card">
-                        <div class="numbaring">
-                            <h1>04</h1>
-                        </div>
-                        <img src="{{ asset('Frontend')}}/assets/img/service/service-icon-4.png" alt="">
-                        <h3>Modern Website Design</h3>
-                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Provident voluptates, veritatis nisi quas excepturi debitis</p>
-                        <a href="">Read More...</a>
-                    </div>
-                    <div class="card">
-                        <div class="numbaring">
-                            <h1>05</h1>
-                        </div>
-                        <img src="{{ asset('Frontend')}}/assets/img/service/service-icon-5.png" alt="">
-                        <h3>Modern Website Design</h3>
-                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Provident voluptates, veritatis nisi quas excepturi debitis</p>
-                        <a href="">Read More...</a>
-                    </div>
-                    <div class="card">
-                        <div class="numbaring">
-                            <h1>06</h1>
-                        </div>
-                        <img src="{{ asset('Frontend')}}/assets/img/service/service-icon-6.png" alt="">
-                        <h3>Modern Website Design</h3>
-                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Provident voluptates, veritatis nisi quas excepturi debitis</p>
-                        <a href="">Read More...</a>
-                    </div>
+                    @empty
+                        <span>Data Not Found</span>
+                    @endforelse
                 </div>
                 <!-- Service group end -->
             </div>

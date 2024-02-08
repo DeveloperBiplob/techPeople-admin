@@ -2,9 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Frontend\Service;
-use App\Http\Requests\StoreServiceRequest;
-use App\Http\Requests\UpdateServiceRequest;
+use App\Models\Service;
 
 class ServicePageController extends Controller
 {
@@ -13,7 +11,8 @@ class ServicePageController extends Controller
      */
     public function index()
     {
-        return view('Frontend.pages.service');
+        $services = Service::latest()->get();
+        return view('Frontend.pages.service', compact('services'));
     }
 
 }
