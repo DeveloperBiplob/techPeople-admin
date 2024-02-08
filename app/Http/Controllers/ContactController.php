@@ -24,7 +24,7 @@ class ContactController extends Controller
 
         session()->flash('success','Send Message succesfully');
 
-        return redirect()->route('home');
+        return back();
        
        
     }
