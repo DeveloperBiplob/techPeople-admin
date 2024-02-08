@@ -23,7 +23,7 @@ class UpdatePostRequest extends FormRequest
     {
         return [
             'category_id' => ['required'],
-            'title' => ["required", "unique:posts,title,{$this->post->id}", "max:100"],
+            'title' => ["required", "unique:posts,title,{$this->post->id}", "max:200"],
             'description' => ['required', 'string'],
             'image' => ['mimes:png,jpg, jpeg']
         ];
