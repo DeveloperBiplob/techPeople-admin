@@ -12,6 +12,7 @@
         <div class="blogs-content">
             <div class="blog-left">
                 @foreach ($randomPosts as $randomPost)
+                @if($randomPost->status == 'Active')
                 <div class="card">
                     <div class="blg-card-left">
                         <div class="blg-img-wrapper">
@@ -35,6 +36,7 @@
                         </div>
                     </div>
                 </div>
+                @endif
                 @endforeach
             </div>
             <div class="blog-right">
@@ -50,6 +52,7 @@
                     </div>
                     <div class="latest-blog">
                         @foreach ($latestPosts as $latestPost)
+                        @if($latestPost->status == 'Active')
                         <a class="card" href="{{ route('blogdetails', $latestPost->slug) }}">
                             <div class="left">
                                 <div class="blg-img-wrapper">
@@ -61,6 +64,7 @@
                                 <span><i class="fa-solid fa-calendar-days"></i> {{ $latestPost->created_at->format('d M Y') }}</span>
                             </div>
                         </a>
+                        @endif
                         @endforeach
                     </div>
                 </div>

@@ -54,6 +54,7 @@
                     </div>
                     <div class="latest-blog">
                         @foreach ($latestPosts as $latestPost)
+                        @if($latestPost->status == 'Active')
                         <a class="card" href="{{ route('blogdetails', $latestPost->slug) }}">
                             <div class="left">
                                 <div class="blg-img-wrapper">
@@ -65,6 +66,7 @@
                                 <span><i class="fa-solid fa-calendar-days"></i> {{ $latestPost->created_at->format('d M Y') }}</span>
                             </div>
                         </a>
+                        @endif
                         @endforeach
                     </div>
                 </div>
