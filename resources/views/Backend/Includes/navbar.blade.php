@@ -14,15 +14,15 @@
       <!-- User -->
       <li class="nav-item dropdown">
         <a class="nav-link" data-toggle="dropdown" href="#">
-          <i class="far fa-user"></i> <span>User</span>
+          <i class="far fa-user"></i> <span>Profile</span>
         </a>
         <div class="dropdown-menu dropdown-menu-lg dropdown-menu-right">
-          <div class="dropdown-item">
+          {{-- <div class="dropdown-item">
             <div style="display: flex;justify-content:space-between;align-items:center">
               <a href="">Change Password</a>
               <i class="fa-solid fa-key"></i>
             </div>
-          </div>
+          </div> --}}
           <div class="dropdown-divider"></div>
           @auth('web')
           <form action="{{ route('logout') }}" method="POST" class="dropdown-item">

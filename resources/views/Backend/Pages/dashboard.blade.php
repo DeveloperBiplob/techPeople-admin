@@ -1,3 +1,10 @@
+@php
+  $contact = App\Models\Contact::get();
+  $blogs = App\Models\Post::get();
+  $services = App\Models\Service::get();
+  $portfolios = App\Models\Portfolio::get();
+  $configer = App\Models\Configer::latest()->first();
+@endphp
 @extends('Backend.Layouts.master')
 @section('title', 'Dashboard')
 @section('master-content')
@@ -6,14 +13,14 @@
       <!-- small box -->
       <div class="small-box bg-info">
         <div class="inner">
-          <h3>150</h3>
+          <h3>{{ $contact->count() }}</h3>
 
-          <p>New Orders</p>
+          <p>Message Request</p>
         </div>
         <div class="icon">
-          <i class="ion ion-bag"></i>
+          <i class="fa-solid fa-envelope-open-text mr-1" aria-hidden="true"></i>
         </div>
-        <a href="#" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
+        <a href="{{ route('contactContent') }}" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
       </div>
     </div>
     <!-- ./col -->
@@ -21,14 +28,14 @@
       <!-- small box -->
       <div class="small-box bg-success">
         <div class="inner">
-          <h3>53<sup style="font-size: 20px">%</sup></h3>
+          <h3>{{ $blogs->count() }}<sup style="font-size: 20px"></sup></h3>
 
-          <p>Bounce Rate</p>
+          <p>Blogs</p>
         </div>
         <div class="icon">
-          <i class="ion ion-stats-bars"></i>
+          <i class="fa-solid fa-blog"></i>
         </div>
-        <a href="#" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
+        <a href="{{ route('post.index') }}" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
       </div>
     </div>
     <!-- ./col -->
@@ -36,14 +43,14 @@
       <!-- small box -->
       <div class="small-box bg-warning">
         <div class="inner">
-          <h3>44</h3>
+          <h3>{{ $services->count() }}</h3>
 
-          <p>User Registrations</p>
+          <p>Services</p>
         </div>
         <div class="icon">
-          <i class="ion ion-person-add"></i>
+          <i class="fa-solid fa-briefcase mr-1" aria-hidden="true"></i>
         </div>
-        <a href="#" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
+        <a href="{{ route('service.index') }}" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
       </div>
     </div>
     <!-- ./col -->
@@ -51,32 +58,20 @@
       <!-- small box -->
       <div class="small-box bg-danger">
         <div class="inner">
-          <h3>65</h3>
+          <h3>{{ $portfolios->count() }}</h3>
 
-          <p>Unique Visitors</p>
+          <p>Portfolios</p>
         </div>
         <div class="icon">
-          <i class="ion ion-pie-graph"></i>
+          <i class="fa-solid fa-address-card mr-1" aria-hidden="true"></i>
         </div>
-        <a href="#" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
+        <a href="{{ route('portfolio.index') }}" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
       </div>
     </div>
     <!-- ./col -->
   </div>
-
   <div class="row">
-    <!-- Left col -->
-    <section class="col-lg-7 connectedSortable ui-sortable">
-    
-
-      <!-- /.card -->
-    </section>
-
-    <section class="col-lg-5 connectedSortable ui-sortable">
-
-
-    </section>
-    <!-- right col -->
+    <iframe style="min-height: 100vh" width="100%" height="100%" src="{{ $configer->video ?? 'https://www.youtube.com/embed/Vb0dG-2huJE?autoplay=1&mute=1' }}" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
   </div>
   
 @endsection
