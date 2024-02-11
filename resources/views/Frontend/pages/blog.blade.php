@@ -98,7 +98,8 @@
                 </div> --}}
             </div>
         </div>
-        <div class="blog-left-footer">
+        {{ $randomPosts->links('vendor.pagination.custom') }}
+        {{-- <div class="blog-left-footer">
             <ul>
                 <li><a href=""><i class="fa-solid fa-arrow-left"></i></a></li>
                 <li><a href="">1</a></li>
@@ -106,7 +107,7 @@
                 <li><a href="">3</a></li>
                 <li><a href=""><i class="fa-solid fa-arrow-right"></i></a></li>
             </ul>
-        </div>
+        </div> --}}
 </section>
 
 @endsection
