@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Action\File;
 use Illuminate\Support\Str;
 use App\Models\Overview;
 use App\Http\Requests\StoreOverviewRequest;
@@ -55,12 +56,25 @@ class OverviewController extends Controller
      */
     public function update(UpdateOverviewRequest $request, Overview $overview)
     {
-        $overview->update([
-            'title' => $request->title,
-            'slug' => Str::slug($request->title),
-            'amount' => $request->amount
-        ]);
+        if($request->hasFile('image')){
+            $old_image = $overview->image;
+            File::deleteFile($old_image);
 
+            $overview->update([
+                'title' => $request->title,
+                'slug' => Str::slug($request->title),
+                'amount' => $request->amount,
+                'image' => File::upload($request->file('image'), 'Overviews')
+            ]);
+
+        }else{
+            $overview->update([
+                'title' => $request->title,
+                'slug' => Str::slug($request->title),
+                'amount' => $request->amount
+            ]);
+
+        }
         $this->notificationMessage('Project Overview Update Successfully!');
         return redirect()->route('overview.index');
     }

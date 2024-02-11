@@ -17,6 +17,7 @@
                       <th style="width: 20px">Sl</th>
                       <th>Title</th>
                       <th>Amount</th>
+                      <th>Image</th>
                       <th style="width: 200px">Action</th>
                     </tr>
                   </thead>
@@ -26,6 +27,11 @@
                         <td>{{ $loop->index + 1 }}</td>
                         <td>{{ $overview->title }}</td>
                         <td>{{ $overview->amount }}</td>
+                        <td>
+                          <div style="width: 50px; height:50px; overflow:hidden;">
+                           <img width="100%" src="{{ asset($overview->image) }}" alt="">
+                          </div>
+                       </td>
                         <td>
                             <a href="{{ route('overview.edit', $overview->slug) }}" class="btn btn-sm btn-info"><i class="fa-solid fa-pen-to-square"></i></a>
                         </td>

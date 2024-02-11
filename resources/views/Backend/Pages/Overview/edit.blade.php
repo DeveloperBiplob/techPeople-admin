@@ -8,7 +8,7 @@
                 <a href="{{ route('overview.index') }}" class="btn btn-md btn-success"><i class="fa-solid fa-arrow-left mr-1"></i> Back</a>
             </div>
             <div class="card-body">
-                <form action="{{ route('overview.update', $overview->slug) }}" method="POST">
+                <form action="{{ route('overview.update', $overview->slug) }}" method="POST" enctype="multipart/form-data">
                     @csrf
                     @method('PUT')
                     <div class="mb-3">
@@ -24,6 +24,16 @@
                       @error('amount')
                         <div id="emailHelp" class="form-text">{{ $message }}</div>
                       @enderror
+                    </div>
+                    <div class="mb-3">
+                      <div class="custom-file">
+                          <input type="file" name="image" class="custom-file-input" id="image">
+                          <label class="custom-file-label" for="image">Choose file</label>
+                      </div>
+                      @error('image')
+                      <div id="emailHelp" class="form-text">{{ $message }}</div>
+                      @enderror
+                      <img style="border: 1px solid #ddd; padding:5px; width:100px; margin-top:10px" src="{{ asset($overview->image) }}" alt="">
                     </div>
                     <button type="submit" class="btn btn-primary">Update</button>
                 </form>

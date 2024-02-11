@@ -17,22 +17,26 @@ class OverviewSeeder extends Seeder
         Overview::create([
             'title' => 'Project Completed',
             'slug' => Str::slug('Project Completed'),
-            'amount' => 300
+            'amount' => 300,
+            'image' => 'image'
         ]);
         Overview::create([
             'title' => 'Safisfied Clients',
             'slug' => Str::slug('Safisfied Clients'),
-            'amount' => 280
+            'amount' => 280,
+            'image' => 'image'
         ]);
         Overview::create([
             'title' => 'Expert Teams',
             'slug' => Str::slug('Expert Teams'),
-            'amount' => 150
+            'amount' => 150,
+            'image' => 'image'
         ]);
         Overview::create([
             'title' => 'Win Awards',
             'slug' => Str::slug('Win Awards'),
-            'amount' => 50
+            'amount' => 50,
+            'image' => 'image'
         ]);
     }
 }

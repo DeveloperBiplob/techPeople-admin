@@ -79,7 +79,7 @@
                     @foreach ($overviews as $overview)
                     <div class="card">
                         <div class="top">
-                            <img src="{{ asset('Frontend') }}/assets/img/service/count-1.png" alt="">
+                            <img src="{{ asset($overview->image) }}" alt="">
                             <h1>{{ $overview->amount }}+</h1>
                         </div>
                         <p>{{ $overview->title }}</p>

@@ -23,7 +23,8 @@ class UpdateOverviewRequest extends FormRequest
     {
         return [
             'title' => ['required', 'string', 'max:100'],
-            'amount' => ['required','numeric']
+            'amount' => ['required','numeric'],
+            'image' => ['mimes:png,jpg, jpeg']
         ];
     }
 }

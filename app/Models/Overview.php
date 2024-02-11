@@ -9,7 +9,7 @@ class Overview extends Model
 {
     use HasFactory;
     
-    protected $fillable = ['title', 'slug', 'amount'];
+    protected $fillable = ['title', 'slug', 'amount', 'image'];
 
     /**
      * Get the route key for the model.
