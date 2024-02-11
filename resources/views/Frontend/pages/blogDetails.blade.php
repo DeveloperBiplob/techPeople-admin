@@ -54,7 +54,7 @@
                     </div>
                     <div class="latest-blog">
                         @foreach ($latestPosts as $latestPost)
-                        <a class="card" href="./blog-details.html">
+                        <a class="card" href="{{ route('blogdetails', $latestPost->slug) }}">
                             <div class="left">
                                 <div class="blg-img-wrapper">
                                     <img src="{{ asset($latestPost->image)}}" alt="">
@@ -74,7 +74,7 @@
                     </div>
                     <div class="category">
                         @foreach ($categories as $category)
-                        <ul><li><a href="">{{ $category->name }}</a></li></ul>
+                        <ul><li><a href="{{ route('category-wise-post', $category->slug) }}">{{ $category->name }}</a></li></ul>
                         @endforeach
                     </div>
                 </div>
@@ -84,7 +84,7 @@
                     </div>
                     <div class="tags">
                         @foreach ($tags as $tag)
-                        <a href="">{{ $tag->name }}</a>      
+                        <a href="{{ route('tag-wise-post', $tag->slug) }}">{{ $tag->name }}</a>      
                         @endforeach
                     </div>
                 </div>
@@ -103,7 +103,7 @@
             </div>
         </div>
         <!-- Blog Witter--- -->
-        <section class="writter">
+        {{-- <section class="writter">
             <div class="container">
                 <div class="writter-content">
                     <div class="left">
@@ -117,9 +117,9 @@
                     </div>
                 </div>
             </div>
-        </section>
+        </section> --}}
         <!-- Blog comments -->
-        <section class="comments">
+        {{-- <section class="comments">
             <div class="container">
                 <div class="comments-content">
                     <div class="comment-header">
@@ -177,10 +177,10 @@
                     </div>
                 </div>
             </div>
-        </section>
+        </section> --}}
 
         <!-- Comments Form----- -->
-        <div class="contact-body">
+        {{-- <div class="contact-body">
             <div class="main-contact-body">
                 <div class="contact-left">
                     <div class="form-header">
@@ -209,7 +209,7 @@
                     </form>
                 </div>
             </div>
-        </div>
+        </div> --}}
     </div>
 </section>
 

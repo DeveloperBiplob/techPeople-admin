@@ -59,7 +59,7 @@
                                 <li><a href="{{ route('about')}}" class="{{ Route::is('about') ? 'active-nav' : '' }}">About Us</a></li>
                                 <li><a href="{{ route('service')}}" class="{{ Route::is('service') ? 'active-nav' : '' }}">Services</a></li>
                                 <li><a href="{{ route('portfolio')}}" class="{{ Route::is('portfolio') ? 'active-nav' : '' }}">Portfolio</a></li>
-                                <li><a href="{{ route('blog')}}" class="{{ Route::is('blog') || Route::is('blogdetails') ? 'active-nav' : '' }}">Blogs</a></li>
+                                <li><a href="{{ route('blog')}}" class="{{ Route::is('blog') || Route::is('blogdetails') || Route::is('category-wise-post') || Route::is('tag-wise-post') ? 'active-nav' : '' }}">Blogs</a></li>
                                 <li><a href="{{ route('contact')}}" class="{{ Route::is('contact') ? 'active-nav' : '' }}">Contact Us</a></li> 
                                 <div class="header-btn">
                                     <a onclick="showRequestForm()">Get Started</a>

@@ -70,7 +70,7 @@
                     </div>
                     <div class="category">
                         @foreach ($categories as $category)
-                        <ul><li><a href="">{{ $category->name }}</a></li></ul>
+                        <ul><li><a href="{{ route('category-wise-post', $category->slug) }}">{{ $category->name }}</a></li></ul>
                         @endforeach
                     </div>
                 </div>
@@ -80,7 +80,7 @@
                     </div>
                     <div class="tags">
                         @foreach ($tags as $tag)
-                        <a href="">{{ $tag->name }}</a>      
+                        <a href="{{ route('tag-wise-post', $tag->slug) }}">{{ $tag->name }}</a>      
                         @endforeach
                     </div>
                 </div>
@@ -107,7 +107,6 @@
                 <li><a href=""><i class="fa-solid fa-arrow-right"></i></a></li>
             </ul>
         </div>
-    </div>
 </section>
 
 @endsection

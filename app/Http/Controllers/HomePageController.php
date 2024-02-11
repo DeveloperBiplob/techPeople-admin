@@ -29,7 +29,7 @@ class HomePageController extends Controller
         $data['portfolios'] = Portfolio::latest()->get();
         $data['testimonials'] = Testimonial::latest()->get();
         $data['brands'] = Brand::latest()->get();
-        $data['categories'] = Category::latest()->get();
+        $data['categories'] = Category::get();
         return view("Frontend.Pages.home", $data);
     }
 
