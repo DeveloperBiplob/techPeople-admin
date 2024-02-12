@@ -61,7 +61,7 @@
                             <img src="{{ asset($service->image) }}" alt="">
                             <h3>{{ $service->title }}</h3>
                             <p>{!! Str::limit($service->description, 150) !!}</p>
-                            <a href="">Read More...</a>
+                            <a href="{{ route('serviceProcess', $service->slug) }}">Read More...</a>
                         </div>
                         @endforeach
                     </div>

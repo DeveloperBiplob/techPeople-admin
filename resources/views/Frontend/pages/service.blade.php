@@ -25,7 +25,7 @@
                         <img src="{{ asset($service->image) }}" alt="">
                         <h3>{{ $service->title }}</h3>
                         <p>{!! $service->description !!}</p>
-                        <a href="">Read More...</a>
+                        <a href="{{ route('serviceProcess', $service->slug) }}">Read More...</a>
                     </div>
                     @empty
                         <span>Data Not Found</span>

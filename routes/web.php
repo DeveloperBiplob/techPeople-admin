@@ -46,6 +46,7 @@ Route::get('contact', [ContactPageController::class, 'index'])->name('contact');
 Route::post('/contact-us', [ContactController::class, 'store'])->name('contactUs');
 Route::get('/blog/category/post/{blogCategory}', [BlogPageController::class, 'categoryWisePost'])->name('category-wise-post');
 Route::get('/blog/tag/post/{tag}', [BlogPageController::class, 'tagWisePost'])->name('tag-wise-post');
+Route::get('/service/process/{service}', [ServicePageController::class, 'serviceProcess'])->name('serviceProcess');
 
 Route::get('/dashboard', function () {
     return view('Backend.Pages.dashboard');

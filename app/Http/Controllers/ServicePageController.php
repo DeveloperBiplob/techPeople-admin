@@ -15,4 +15,9 @@ class ServicePageController extends Controller
         return view('Frontend.pages.service', compact('services'));
     }
 
+    public function serviceProcess(Service $service)
+    {
+        return view('Frontend.pages.servicedetail', compact('service'));
+    }
+
 }
