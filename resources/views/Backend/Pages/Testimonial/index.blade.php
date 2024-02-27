@@ -31,11 +31,13 @@
                         <td>{{ $loop->index + 1 }}</td>
                         <td>{{ $testimonial->name }}</td>
                         <td>{{ $testimonial->designation }}</td>
-                        <td>{!! Str::limit($testimonial->description, 100) !!}</td>
-                        {{-- <td style="max-width: 100px; white-space:nowrap;overflow:hidden;text-overflow:ellipsis;">{!! $about->description !!}</td> --}}
+                        @php
+                          $strippedContent  = strip_tags($testimonial->description)
+                        @endphp
+                        <td> {!! Str::limit($strippedContent, 100) !!}</td>
                         <td>
-                           <div style="width: 100px; height:50px; overflow:hidden;">
-                            <img width="100%" src="{{ asset($testimonial->image) }}" alt="">
+                           <div style="width: 50px; height:50px;object-fit: contain;">
+                            <img style="width:100%; height:100%;" src="{{ asset($testimonial->image) }}" alt="">
                            </div>
                         </td>
                         <td>

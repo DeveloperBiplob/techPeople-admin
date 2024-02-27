@@ -29,8 +29,10 @@
                     <tr>
                         <td>{{ $loop->index + 1 }}</td>
                         <td>{{ $service->title }}</td>
-                        <td>{!! Str::limit($service->description, 100) !!}</td>
-                        {{-- <td style="max-width: 100px; white-space:nowrap;overflow:hidden;text-overflow:ellipsis;">{!! $about->description !!}</td> --}}
+                        @php
+                          $strippedContent  = strip_tags($service->description)
+                        @endphp
+                        <td> {!! Str::limit($strippedContent, 100) !!}</td>
                         <td>
                            <div style="width: 100px; height:50px; overflow:hidden;">
                             <img style="object-fit:cover" src="{{ asset($service->image) }}" alt="">
@@ -80,8 +82,10 @@
                         <td>{{ $loop->index + 1 }}</td>
                         <td>{{ $process->service->title }}</td>
                         <td>{{ $process->title }}</td>
-                        <td>{!! Str::limit($process->description, 100) !!}</td>
-                        {{-- <td style="max-width: 100px; white-space:nowrap;overflow:hidden;text-overflow:ellipsis;">{!! $about->description !!}</td> --}}
+                        @php
+                          $strippedContent  = strip_tags($process->description)
+                        @endphp
+                        <td> {!! Str::limit($strippedContent, 100) !!}</td>
                         <td>
                            <div style="width: 100px; height:50px; overflow:hidden;">
                             <img style="width:100%" src="{{ asset($process->image) }}" alt="">

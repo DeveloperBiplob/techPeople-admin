@@ -16,7 +16,7 @@ class AboutPageController extends Controller
         $companyDetail = CompanyDetail::first();
         $gallery = Gallery::first();
         $abouts = About::get();
-        return view('Frontend.pages.about', compact(['companyDetail', 'gallery', 'abouts']));
+        return view('Frontend.Pages.about', compact(['companyDetail', 'gallery', 'abouts']));
     }
 
 

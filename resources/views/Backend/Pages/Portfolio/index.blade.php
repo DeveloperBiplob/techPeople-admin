@@ -31,8 +31,10 @@
                         <td>{{ $loop->index + 1 }}</td>
                         <td>{{ $portfolio->category->name }}</td>
                         <td>{{ $portfolio->title }}</td>
-                        <td>{!! Str::limit($portfolio->description, 100) !!}</td>
-                        {{-- <td style="max-width: 100px; white-space:nowrap;overflow:hidden;text-overflow:ellipsis;">{!! $about->description !!}</td> --}}
+                        @php
+                          $strippedContent  = strip_tags($portfolio->description)
+                        @endphp
+                        <td> {!! Str::limit($strippedContent, 100) !!}</td>
                         <td>
                            <div style="width: 100px; height:50px; overflow:hidden;">
                             <img width="100%" src="{{ asset($portfolio->image) }}" alt="">

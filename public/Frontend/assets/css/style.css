@@ -608,7 +608,7 @@ div#preloader-active {
 */
 .slider{
   height: 100vh;
-  /* background-image:url(../img/gallery/banner-01.png); */
+  background-image:url(../img/gallery/banner-01.png);
   background-repeat: no-repeat;
   background-position: center center;
   background-size: cover;
@@ -637,7 +637,7 @@ div#preloader-active {
   color: var(--primary-color);
 }
 .slider .slider-content p{
-  font-size: 20px;
+  font-size: 18px;
   line-height: 28px;
   margin-bottom: 30px;
 }
@@ -649,7 +649,7 @@ div#preloader-active {
 .paly-btn a {
   text-decoration: none;
   background-color: var(--primary-color);
-  border: 2px dotted white;
+  /* border: 2px dotted white; */
   color: aliceblue;
   border-radius: 50%;
   padding: 15px 20px;
@@ -705,24 +705,24 @@ div#preloader-active {
 -------------------------------------------------
 */
 .about{
-  padding: 50px 10px;
+  padding: 100px 10px;
 }
 .about .about-content{
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
-  gap: 2em;
+  gap: 6em;
 }
 .about .about-content .about-left{
   flex: 1;
-  flex-basis: 48%;
+  flex-basis: 40%;
 }
 .about .about-content .about-left img{
   object-fit: cover;
 }
 .about .about-content .about-right{
   flex: 1;
-  flex-basis: 48%;
+  flex-basis: 40%;
 }
 .about .about-content .about-right p{
   line-height: 28px;
@@ -773,11 +773,12 @@ div#preloader-active {
 }
 .numbaring h1{
 	color: white;
-	font-size: 60px;
+	font-size: 50px;
   letter-spacing: 2px;
 	-webkit-text-stroke: 1px var(--border-color);
 }
 .service .services .card img{
+  width: 15%;
   filter: grayscale(100%)
 }
 .service .services .card h3{
@@ -818,26 +819,29 @@ div#preloader-active {
 .project-content .card{
   flex: 1;
   flex-basis: 250px;
+  text-align: center;
 }
 .project-content .card .top{
   display: flex;
+  justify-content: center;
   align-items: baseline;
   gap: 1em;
   margin-bottom: 10px;
 }
 .project-content .card .top img{
+  width: 15%;
   filter: grayscale(100%)
 }
 .project-content .card .top h1{
-  font-size: 60px;
+  font-size: 50px;
   font-weight: 700;
   color: var(--primary-color);
 }
 .project-content .card p{
-  font-size: 25px;
+  font-size: 20px;
   text-transform: capitalize;
   font-weight: 500;
-  filter: grayscale(100%)
+  filter: grayscale(100%);
 }
 /* 
 --------------------------------------------------
@@ -957,11 +961,12 @@ div#preloader-active {
 }
 .portfolio-cards .card h3{
   margin: 20px;
+  font-size: 15px;
   transition: .3s;
 }
 .portfolio-cards .card p{
   margin: 20px;
-  font-size: 18px;
+  font-size: 16px;
 }
 /* 
 --------------------------------------------------
@@ -970,10 +975,11 @@ div#preloader-active {
 */
 .clnt-feedback{
   padding: 50px 20px;
-  background-image:url(../img/gallery/background.jpg);
+  background-image:linear-gradient(black, black), url(../img/gallery/background.jpg);
+  background-size: cover;
+  background-blend-mode: saturation;
   background-repeat: no-repeat;
   background-position: center center;
-  background-size: cover;
   position: relative;
 }
 .feedback-card {
@@ -1022,8 +1028,8 @@ div#preloader-active {
   padding: 50px 10px;
 }
 .feedbacks .feedback-card .img-wrapper{
-  width: 200px;
-  height: 200px;
+  width: 150px;
+  height: 150px;
   border-radius: 100%;
   border: 5px solid var(--primary-color);
   overflow: hidden;
@@ -1036,18 +1042,18 @@ div#preloader-active {
 }
 .feedbacks .feedback-card h3{
   display: block;
-  font-size: 25px;
+  font-size: 20px;
   font-weight: 500;
   margin-top: 20px;
   margin-bottom: 5px;
 }
 .feedbacks .feedback-card span{
   display: block;
-  font-size: 20px;
+  font-size: 16px;
   opacity: .8;
 }
 .feedbacks .feedback-card p{
-  font-size: 18px;
+  font-size: 16px;
   line-height: 28px;
   text-align: justify;
   margin-top: 10px;
@@ -1709,7 +1715,7 @@ div#preloader-active {
   color: var(--white-color);
 }
 .footer .footer-content{
-  padding: 50px 0;
+  padding: 80px 0;
 }
 .footer .footer-content .row{
   display: flex;
@@ -1741,6 +1747,7 @@ div#preloader-active {
   flex-direction: row;
   gap: 1em;
   color: var(--light-bg-color);
+  margin-top: 50px;
 }
 .footer .footer-content .row .col .social-icon a{
   width: 45px;
@@ -1764,10 +1771,11 @@ div#preloader-active {
   font-weight: 400;
   line-height: 26px;
   padding-bottom: 20px;
+  padding-top: 5px;
   opacity: .8;
 }
 .footer .footer-content .row .col ul li{
-  padding: 3px 0;
+  padding: 5px 0;
 }
 .footer .footer-content .row .col ul li a{
   font-size: 16px;

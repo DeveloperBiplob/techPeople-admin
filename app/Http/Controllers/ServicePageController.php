@@ -12,12 +12,12 @@ class ServicePageController extends Controller
     public function index()
     {
         $services = Service::latest()->get();
-        return view('Frontend.pages.service', compact('services'));
+        return view('Frontend.Pages.service', compact('services'));
     }
 
     public function serviceProcess(Service $service)
     {
-        return view('Frontend.pages.servicedetail', compact('service'));
+        return view('Frontend.Pages.servicedetail', compact('service'));
     }
 
 }

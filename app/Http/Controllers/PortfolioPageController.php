@@ -13,9 +13,9 @@ class PortfolioPageController extends Controller
     public function index()
     {
         $data = [];
-        $data['categories'] = Category::latest()->get();
+        $data['categories'] = Category::get();
         $data['portfolios'] = Portfolio::latest()->get();
-        return view('Frontend.pages.portfolio', $data);
+        return view('Frontend.Pages.portfolio', $data);
     }
 
 

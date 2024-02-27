@@ -18,7 +18,7 @@ class BlogPageController extends Controller
         $data['latestPosts'] = Post::with('category')->latest()->take(3)->get();
         $data['categories'] = BlogCategory::latest()->get();
         $data['tags'] = Tag::latest()->get();
-        return view('Frontend.pages.blog', $data);
+        return view('Frontend.Pages.blog', $data);
     }
 
     public function categoryWisePost(BlogCategory $blogCategory)
@@ -29,7 +29,7 @@ class BlogPageController extends Controller
         $data['latestPosts'] = Post::with('category')->latest()->take(3)->get();
         $data['categories'] = BlogCategory::latest()->get();
         $data['tags'] = Tag::latest()->get();
-        return view('Frontend.pages.blog', $data);
+        return view('Frontend.Pages.blog', $data);
     }
 
     public function tagWisePost(Tag $tag)
@@ -39,7 +39,7 @@ class BlogPageController extends Controller
         $data['latestPosts'] = Post::with('category')->latest()->take(3)->get();
         $data['categories'] = BlogCategory::latest()->get();
         $data['tags'] = Tag::latest()->get();
-        return view('Frontend.pages.blog', $data);
+        return view('Frontend.Pages.blog', $data);
     }
 
 

@@ -13,7 +13,7 @@ class ContactPageController extends Controller
      */
     public function index()
     {
-        return view('Frontend.pages.contact');
+        return view('Frontend.Pages.contact');
     }
 
 }

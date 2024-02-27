@@ -19,7 +19,7 @@ class BlogDetailsPageController extends Controller
         $data['latestPosts'] = Post::with('category')->latest()->take(3)->get();
         $data['categories'] = BlogCategory::latest()->get();
         $data['tags'] = Tag::latest()->get();
-        return view('Frontend.pages.blogDetails', compact('post'), $data);
+        return view('Frontend.Pages.blogDetails', compact('post'), $data);
     }
 
 }
