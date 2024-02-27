@@ -60,7 +60,10 @@
                             </div>
                             <img src="{{ asset($service->image) }}" alt="">
                             <h3>{{ $service->title }}</h3>
-                            <p>{!! Str::limit($service->description, 150) !!}</p>
+                            @php
+                                $strippedContent  = strip_tags($service->description)
+                            @endphp
+                            <p>{!! Str::limit($strippedContent, 150) !!}</p>
                             <a href="{{ route('serviceProcess', $service->slug) }}">Read More...</a>
                         </div>
                         @endforeach

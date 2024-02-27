@@ -26,9 +26,12 @@
                         </div>
                     </div>
                     <div class="blg-card-right">
-                        <span>{{ $randomPost->category->name }}</span>
+                        <span>{{ strtoupper($randomPost->category->name) }}</span>
                         <h3>{{ $randomPost->title}}</h3>
-                        {{-- <p>{!! Str::limit($randomPost->description, 300) !!}</p> --}}
+                        @php
+                            $strippedContent  = strip_tags($randomPost->description)
+                        @endphp
+                        <p>{!! Str::limit($strippedContent, 200) !!}</p>
                         <div class="blg-footer">
                             {{-- <a href=""><i class="fa-regular fa-comment"></i> 50 Comments</a> --}}
                             <a> {{ $randomPost->created_at->diffForHumans() }}</a>

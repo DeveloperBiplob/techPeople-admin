@@ -24,7 +24,7 @@
                         </div>
                     </div>
                     <div class="blg-card-right">
-                        <span>{{ $post->category->name }}</span>
+                        <span>{{ strtoupper($post->category->name) }}</span>
                         <h3>{{ $post->title }}</h3>
                         <div style="margin-bottom: 20px;opacity: .8;">
                             {!! $post->description !!}
@@ -33,9 +33,9 @@
                             <a><b>TAGS:</b> @foreach ($post->tags as $tag) {{ $tag->name }} / @endforeach</a>
                             <div class="social-media-group">
                                 <p>SHARE</p>
-                                <a href="" class="share-socialmedia"><i class="fa-brands fa-facebook-f"></i></a>
-                                <a href="" class="share-socialmedia"><i class="fa-brands fa-twitter"></i></a>
-                                <a href="" class="share-socialmedia"><i class="fa-brands fa-google-plus-g"></i></a>
+                                <a target="_blank" href="https://www.facebook.com/sharer/sharer.php?u={{ route('blogdetails', $post->slug) }}" class="share-socialmedia"><i class="fa-brands fa-facebook-f"></i></a>
+                                <a target="_blank" href="https://wa.me/?text=YOUR_MESSAGE_HERE%20-%20{{ route('blogdetails', $post->slug) }}" class="share-socialmedia"><i class="fa-brands fa-whatsapp"></i></a>
+                                <a target="_blank" href="https://plus.google.com/share?url={{ route('blogdetails', $post->slug) }}" class="share-socialmedia"><i class="fa-brands fa-google-plus-g"></i></a>
                             </div>
                         </div>
                     </div>
