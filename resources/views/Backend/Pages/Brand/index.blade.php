@@ -15,7 +15,7 @@
                 </div>
                 <div class="card-body">
                     <div class="table-responsive">
-                        <table class="table table-bordered table-collapse">
+                        <table id="example1" class="table table-bordered table-striped">
                           <thead>
                             <tr>
                               <th style="width: 20px">Sl</th>
@@ -36,7 +36,7 @@
                                     <form class="d-inline-block" action="{{ route('brand.destroy', $brand->id) }}" method="POST">
                                       @csrf
                                       @method('DELETE')
-                                      <button type="submit" class="btn btn-sm btn-danger show_confirm" data-toggle="tooltip" title='Delete'><i class="fa-solid fa-trash"></i></button>
+                                      <button type="submit" class="btn btn-sm btn-outline-danger show_confirm" data-toggle="tooltip" title='Delete'><i class="fa-solid fa-trash"></i></button>
                                     </form>
                                 </td>
                             </tr>
@@ -69,8 +69,9 @@
                             @error('image')
                             <div id="emailHelp" class="form-text">{{ $message }}</div>
                             @enderror
+                            <img id="ImagePreview" style="border: 1px solid #ddd; padding:5px; width:100px; margin-top:10px" src="#" alt="">
                           </div>
-                        <button type="submit" class="btn btn-primary">Create</button>
+                        <button type="submit" class="btn btn-outline-primary">Create</button>
                     </form>
                 </div>
             </div>
@@ -81,6 +82,22 @@
 @push('script')
 <script src="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/2.1.0/sweetalert.min.js"></script>
 <script type="text/javascript">
+    function readURL(input) {
+      if (input.files && input.files[0]) {
+        var reader = new FileReader();
+            
+        reader.onload = function (e) {
+        $('#ImagePreview').attr('src', e.target.result);
+        }
+            
+          reader.readAsDataURL(input.files[0]);
+        }
+    }
+    
+    $("#image").change(function(){
+        readURL(this);
+    });
+
  
      $('.show_confirm').click(function(event) {
           var form =  $(this).closest("form");

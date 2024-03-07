@@ -5,7 +5,7 @@
         <div class="card-header">
             <div class="d-flex justify-content-between align-items-center">
                 <h3 class="fw-bolder">Update Configuration</h3>
-                <a href="{{ route('configer.index') }}" class="btn btn-md btn-success"><i class="fa-solid fa-arrow-left mr-1"></i> Back</a>
+                <a href="{{ route('configer.index') }}" class="btn btn-md btn-outline-success"><i class="fa-solid fa-arrow-left mr-1"></i> Back</a>
             </div>
             <div class="card-body">
                 <form action="{{ route('configer.update', $configer->id) }}" method="POST" enctype="multipart/form-data">
@@ -14,13 +14,13 @@
                     <div class="mb-3">
                         <label for="logo" class="form-label">Choose a Logo</label>
                         <div class="custom-file">
-                            <input type="file" name="logo" class="custom-file-input" id="logo">
+                            <input type="file" name="logo" class="custom-file-input" id="image">
                             <label class="custom-file-label" for="image">Choose webiste logo</label>
                         </div>
                         @error('logo')
                         <div id="emailHelp" class="form-text">{{ $message }}</div>
                         @enderror
-                        <img style="border: 1px solid #ddd; padding:5px; width:100px; margin-top:10px" src="{{ asset($configer->logo) }}" alt="">
+                        <img id="ImagePreview" style="border: 1px solid #ddd; padding:5px; width:100px; margin-top:10px" src="{{ asset($configer->logo) }}" alt="">
                       </div>
                     <div class="mb-3">
                       <label for="phone" class="form-label">Phone</label>
@@ -85,9 +85,30 @@
                           <div id="emailHelp" class="form-text">{{ $message }}</div>
                         @enderror
                       </div>
-                    <button type="submit" class="btn btn-primary">Update</button>
+                    <button type="submit" class="btn btn-outline-primary">Update</button>
                 </form>
             </div>
         </div>
     </div>
 @endsection
+
+@push('script')
+<script>
+      function readURL(input) {
+      if (input.files && input.files[0]) {
+        var reader = new FileReader();
+            
+        reader.onload = function (e) {
+        $('#ImagePreview').attr('src', e.target.result);
+        }
+            
+          reader.readAsDataURL(input.files[0]);
+        }
+    }
+    
+    $("#image").change(function(){
+        readURL(this);
+    });
+
+</script>
+@endpush

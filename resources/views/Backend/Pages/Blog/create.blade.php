@@ -5,7 +5,7 @@
         <div class="card-header">
             <div class="d-flex justify-content-between align-items-center">
                 <h3 class="fw-bolder">Add Blog</h3>
-                <a href="{{ route('post.index') }}" class="btn btn-md btn-success"><i class="fa-solid fa-arrow-left mr-1"></i> Back</a>
+                <a href="{{ route('post.index') }}" class="btn btn-md btn-outline-success"><i class="fa-solid fa-arrow-left mr-1"></i> Back</a>
             </div>
             <div class="card-body">
                 <form action="{{ route('post.store') }}" method="POST" enctype="multipart/form-data">
@@ -58,13 +58,14 @@
                                   <span class="input-group-text">Upload</span>
                                 </div>
                                 <div class="custom-file">
-                                  <input type="file" name="image" class="custom-file-input" id="inputGroupFile01">
+                                  <input type="file" name="image" class="custom-file-input" id="image">
                                   <label class="custom-file-label" for="inputGroupFile01">Choose file</label>
                                 </div>
                               </div>
                               @error('image')
                                 <span class="text-danger">{{ $message }}</span>
                             @enderror
+                            <img id="ImagePreview" style="border: 1px solid #ddd; padding:5px; width:100px; margin-top:10px" src="#" alt="">
                         </div>
                         <div class="col-md-6">
                             <div class="form-group">
@@ -83,7 +84,7 @@
                     <div class="row">
                         <div class="col-md-12">
                             <div class="form-group">
-                                <button type="submit" class="btn btn-primary btn-block">Create New Post</button>
+                                <button type="submit" class="btn btn-primary btn-outline-block">Create New Post</button>
                             </div>
                         </div>
                     </div>
@@ -95,6 +96,23 @@
 
 @push('script')
 <script>
+    function readURL(input) {
+      if (input.files && input.files[0]) {
+        var reader = new FileReader();
+            
+        reader.onload = function (e) {
+        $('#ImagePreview').attr('src', e.target.result);
+        }
+            
+          reader.readAsDataURL(input.files[0]);
+        }
+    }
+    
+    $("#image").change(function(){
+        readURL(this);
+    });
+
+
     $('#description').summernote({
     placeholder: 'Enter a descripton for your new about section',
     tabsize: 2,

@@ -9,13 +9,13 @@
         <div class="card-header">
             <div class="d-flex justify-content-between align-items-center">
                 <h3 class="fw-bolder">Blogs</h3>
-                <a href="{{ route('post.create') }}" class="btn btn-md btn-success"><i class="fa-solid fa-plus mr-1"></i> Add New</a>
+                <a href="{{ route('post.create') }}" class="btn btn-md btn-outline-success"><i class="fa-solid fa-plus mr-1"></i> Add New</a>
             </div>
         </div>
         <div class="card-body">
             <div class="table-responsive">
-                <table class="table table-bordered">
-                    <tbody>
+                <table id="example1" class="table table-bordered table-striped">
+                    <thead>
                         <tr>
                             <th style="width: 20px">Sl</th>
                             <th>Name</th>
@@ -24,7 +24,7 @@
                             <th>Status</th>
                             <th>Action</th>
                         </tr>
-                    </tbody>
+                    </thead>
                     <tbody>
                         @foreach ($posts as $post)
                         <tr>
@@ -42,12 +42,12 @@
                             <td>
                                 <a href="{{ route('post-status', $post->slug) }}" id="postStatus" data-status="{{ $post->status }}" class="btn btn-sm btn-{{ $post->status == 'Active' ? 'success': 'danger' }} "><i class="fa fa-arrow-{{ $post->status == 'Active' ? 'up': 'down' }}"></i></a>
 
-                                <a href="" class="btn btn-sm btn-success"><i class="fa-solid fa-eye"></i></a>
-                                <a href="{{ route('post.edit', $post->slug) }}" class="btn btn-sm btn-info"><i class="fa-solid fa-pen-to-square"></i></a>
+                                <a href="" class="btn btn-sm btn-outline-success"><i class="fa-solid fa-eye"></i></a>
+                                <a href="{{ route('post.edit', $post->slug) }}" class="btn btn-sm btn-outline-info"><i class="fa-solid fa-pen-to-square"></i></a>
                                 <form action="{{ route('post.destroy', $post->slug) }}" method="POST" class="d-inline-block">
                                     @csrf
                                     @method('DELETE')
-                                    <button type="submit" class="btn btn-sm btn-danger show_confirm" data-toggle="tooltip" title='Delete'><i class="fa-solid fa-trash"></i></button>
+                                    <button type="submit" class="btn btn-sm btn-outline-danger show_confirm" data-toggle="tooltip" title='Delete'><i class="fa-solid fa-trash"></i></button>
                                 </form>
                             </td>
                         </tr>

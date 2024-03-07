@@ -5,7 +5,7 @@
         <div class="card-header">
             <div class="d-flex justify-content-between align-items-center">
                 <h3 class="fw-bolder">Sliders</h3>
-                <a href="{{ route('slider.edit', $slider->slug) }}" class="btn btn-md btn-success">Update Slider</a>
+                <a href="{{ route('slider.edit', $slider->slug) }}" class="btn btn-md btn-outline-success"><i class="fa-solid fa-plus mr-1"></i> Update Slider</a>
             </div>
         </div>
         <div class="card-body">

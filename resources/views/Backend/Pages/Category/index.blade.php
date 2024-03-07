@@ -15,7 +15,7 @@
                 </div>
                 <div class="card-body">
                     <div class="table-responsive">
-                        <table class="table table-bordered table-collapse">
+                        <table id="example1" class="table table-bordered table-striped">
                           <thead>
                             <tr>
                               <th style="width: 20px">Sl</th>
@@ -32,7 +32,7 @@
                                     <form class="d-inline-block" action="{{ route('category.destroy', $category->slug) }}" method="POST">
                                       @csrf
                                       @method('DELETE')
-                                      <button type="submit" class="btn btn-sm btn-danger show_confirm" data-toggle="tooltip" title='Delete'><i class="fa-solid fa-trash"></i></button>
+                                      <button type="submit" class="btn btn-sm btn-outline-danger show_confirm" data-toggle="tooltip" title='Delete'><i class="fa-solid fa-trash"></i></button>
                                     </form>
                                 </td>
                             </tr>
@@ -63,7 +63,7 @@
                             <div id="emailHelp" class="form-text">{{ $message }}</div>
                           @enderror
                         </div>
-                        <button type="submit" class="btn btn-primary">Create</button>
+                        <button type="submit" class="btn btn-outline-primary">Create</button>
                     </form>
                 </div>
             </div>

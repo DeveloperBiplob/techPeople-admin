@@ -9,12 +9,12 @@
         <div class="card-header">
             <div class="d-flex justify-content-between align-items-center">
                 <h3 class="fw-bolder">Service</h3>
-                <a href="{{ route('service.create') }}" class="btn btn-md btn-success"><i class="fa-solid fa-plus mr-1"></i> Add New</a>
+                <a href="{{ route('service.create') }}" class="btn btn-md btn-outline-success"><i class="fa-solid fa-plus mr-1"></i> Add New</a>
             </div>
         </div>
         <div class="card-body">
             <div class="table-responsive">
-                <table class="table table-bordered table-collapse">
+                <table id="example1" class="table table-bordered table-striped">
                   <thead>
                     <tr>
                       <th style="width: 20px">Sl</th>
@@ -40,11 +40,11 @@
                         </td>
                         <td>
                             {{-- <a href="{{ route('service.show', $service->slug) }}" class="btn btn-sm btn-success"><i class="fa-solid fa-eye"></i></a> --}}
-                            <a href="{{ route('service.edit', $service->slug) }}" class="btn btn-sm btn-info"><i class="fa-solid fa-pen-to-square"></i></a>
+                            <a href="{{ route('service.edit', $service->slug) }}" class="btn btn-sm btn-outline-info"><i class="fa-solid fa-pen-to-square"></i></a>
                             <form class="d-inline-block" action="{{ route('service.destroy', $service->slug) }}" method="POST">
                               @csrf
                               @method('DELETE')
-                              <button type="submit" class="btn btn-sm btn-danger show_confirm" data-toggle="tooltip" title='Delete'><i class="fa-solid fa-trash"></i></button>
+                              <button type="submit" class="btn btn-sm btn-outline-danger show_confirm" data-toggle="tooltip" title='Delete'><i class="fa-solid fa-trash"></i></button>
                             </form>
                         </td>
                     </tr>
@@ -60,12 +60,12 @@
         <div class="card-header">
             <div class="d-flex justify-content-between align-items-center">
                 <h3 class="fw-bolder">Work Process</h3>
-                <a href="{{ route('process.create') }}" class="btn btn-md btn-success"><i class="fa-solid fa-plus mr-1"></i> Add New</a>
+                <a href="{{ route('process.create') }}" class="btn btn-md btn-outline-success"><i class="fa-solid fa-plus mr-1"></i> Add New</a>
             </div>
         </div>
         <div class="card-body">
             <div class="table-responsive">
-                <table class="table table-bordered table-collapse">
+                <table id="example10" class="table table-bordered table-striped">
                   <thead>
                     <tr>
                       <th style="width: 20px">Sl</th>
@@ -92,12 +92,12 @@
                            </div>
                         </td>
                         <td>
-                            <a href="{{ route('process.show', $process->slug) }}" class="btn btn-sm btn-success"><i class="fa-solid fa-eye"></i></a>
-                            <a href="{{ route('process.edit', $process->slug) }}" class="btn btn-sm btn-info"><i class="fa-solid fa-pen-to-square"></i></a>
+                            <a href="{{ route('process.show', $process->slug) }}" class="btn btn-sm btn-outline-success"><i class="fa-solid fa-eye"></i></a>
+                            <a href="{{ route('process.edit', $process->slug) }}" class="btn btn-sm btn-outline-info"><i class="fa-solid fa-pen-to-square"></i></a>
                             <form class="d-inline-block" action="{{ route('process.destroy', $process->slug) }}" method="POST">
                               @csrf
                               @method('DELETE')
-                              <button type="submit" class="btn btn-sm btn-danger show_confirm" data-toggle="tooltip" title='Delete'><i class="fa-solid fa-trash"></i></button>
+                              <button type="submit" class="btn btn-sm btn-outline-danger show_confirm" data-toggle="tooltip" title='Delete'><i class="fa-solid fa-trash"></i></button>
                             </form>
                         </td>
                     </tr>

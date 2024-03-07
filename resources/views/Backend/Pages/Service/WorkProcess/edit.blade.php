@@ -5,7 +5,7 @@
         <div class="card-header">
             <div class="d-flex justify-content-between align-items-center">
                 <h3 class="fw-bolder">Update Work Process</h3>
-                <a href="{{ route('service.index') }}" class="btn btn-md btn-success"><i class="fa-solid fa-arrow-left mr-1"></i> Back</a>
+                <a href="{{ route('service.index') }}" class="btn btn-md btn-outline-success"><i class="fa-solid fa-arrow-left mr-1"></i> Back</a>
             </div>
             <div class="card-body">
                 <form action="{{ route('process.update', $process->slug) }}" method="POST" enctype="multipart/form-data">
@@ -46,9 +46,9 @@
                         @error('image')
                         <div id="emailHelp" class="form-text">{{ $message }}</div>
                         @enderror
-                        <img style="border: 1px solid #ddd; padding:5px; width:100px; margin-top:10px" src="{{ asset($process->image) }}" alt="">
+                        <img id="ImagePreview" style="border: 1px solid #ddd; padding:5px; width:100px; margin-top:10px" src="{{ asset($process->image) }}" alt="">
                       </div>
-                    <button type="submit" class="btn btn-primary">Update</button>
+                    <button type="submit" class="btn btn-outline-primary">Update</button>
                 </form>
             </div>
         </div>
@@ -57,6 +57,22 @@
 
 @push('script')
 <script>
+    function readURL(input) {
+      if (input.files && input.files[0]) {
+        var reader = new FileReader();
+            
+        reader.onload = function (e) {
+        $('#ImagePreview').attr('src', e.target.result);
+        }
+            
+          reader.readAsDataURL(input.files[0]);
+        }
+    }
+    
+    $("#image").change(function(){
+        readURL(this);
+    });
+
     $('#description').summernote({
     placeholder: 'Enter a descripton for your new about section',
     tabsize: 2,

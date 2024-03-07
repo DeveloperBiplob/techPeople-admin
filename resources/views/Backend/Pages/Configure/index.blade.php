@@ -9,7 +9,7 @@
         <div class="card-header">
             <div class="d-flex justify-content-between align-items-center">
                 <h3 class="fw-bolder">Website Configuration </h3>
-                <a href="{{ route('configer.edit', $configer->id ?? 1) }}" class="btn btn-md btn-success"><i class="fa-solid fa-plus mr-1"></i> Update</a>
+                <a href="{{ route('configer.edit', $configer->id ?? 1) }}" class="btn btn-md btn-outline-success"><i class="fa-solid fa-plus mr-1"></i> Update</a>
             </div>
         </div>
         <div class="card-body">

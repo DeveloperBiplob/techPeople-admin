@@ -13,7 +13,7 @@
         </div>
         <div class="card-body">
             <div class="table-responsive">
-                <table class="table table-bordered table-collapse">
+                <table id="example2" class="table table-bordered table-striped">
                   <thead>
                     <tr>
                       <th style="width: 20px">Sl</th>
@@ -31,11 +31,11 @@
                         <td>{!! Str::limit($contact->message, 100) !!}</td>
                         <td>{{ $contact->created_at->diffForHumans() }}</td>
                         <td>
-                            <a href="{{ route('contactShow', $contact->id) }}" class="btn btn-sm btn-success"><i class="fa-solid fa-eye"></i></a>
+                            <a href="{{ route('contactShow', $contact->id) }}" class="btn btn-sm btn-outline-success"><i class="fa-solid fa-eye"></i></a>
                             <form class="d-inline-block" action="{{ route('contactDelete', $contact->id) }}" method="POST">
                               @csrf
                               @method('DELETE')
-                              <button type="submit" class="btn btn-sm btn-danger show_confirm" data-toggle="tooltip" title='Delete'><i class="fa-solid fa-trash"></i></button>
+                              <button type="submit" class="btn btn-sm btn-outline-danger show_confirm" data-toggle="tooltip" title='Delete'><i class="fa-solid fa-trash"></i></button>
                             </form>
                         </td>
                     </tr>

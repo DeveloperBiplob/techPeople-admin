@@ -9,12 +9,12 @@
         <div class="card-header">
             <div class="d-flex justify-content-between align-items-center">
                 <h3 class="fw-bolder">About Your Company (Describe Stortly)</h3>
-                <a href="{{ route('companyEdit', $companyDetail->slug) }}" class="btn btn-md btn-success"><i class="fa-solid fa-plus mr-1"></i> Update</a>
+                <a href="{{ route('companyEdit', $companyDetail->slug) }}" class="btn btn-md btn-outline-success"><i class="fa-solid fa-plus mr-1"></i> Update</a>
             </div>
         </div>
         <div class="card-body">
             <div class="table-responsive">
-                <table class="table table-bordered table-collapse">
+                <table class="table table-bordered table-striped">
                   <thead>
                     <tr>
                       <th>Title</th>
@@ -36,8 +36,8 @@
                             </div>
                         </td>
                         <td>
-                            <a href="{{ route('companyView', $companyDetail->slug) }}" class="btn btn-sm btn-success"><i class="fa-solid fa-eye"></i></a>
-                            <a href="{{ route('companyEdit', $companyDetail->slug) }}" class="btn btn-sm btn-info"><i class="fa-solid fa-pen-to-square"></i></a>
+                            <a href="{{ route('companyView', $companyDetail->slug) }}" class="btn btn-sm btn-outline-success"><i class="fa-solid fa-eye"></i></a>
+                            <a href="{{ route('companyEdit', $companyDetail->slug) }}" class="btn btn-sm btn-outline-info"><i class="fa-solid fa-pen-to-square"></i></a>
                         </td>
                     </tr>
                   </tbody>
@@ -49,7 +49,7 @@
         <div class="card-header">
             <div class="d-flex justify-content-between align-items-center">
                 <h3 class="fw-bolder">About Image Gallery</h3>
-                <a href="{{ route('gallery.edit', $gallery->id) }}" class="btn btn-md btn-success"><i class="fa-solid fa-plus mr-1"></i> Update</a>
+                <a href="{{ route('gallery.edit', $gallery->id) }}" class="btn btn-md btn-outline-success"><i class="fa-solid fa-plus mr-1"></i> Update</a>
             </div>
         </div>
         <div class="card-body">
@@ -91,12 +91,12 @@
         <div class="card-header">
             <div class="d-flex justify-content-between align-items-center">
                 <h3 class="fw-bolder">About</h3>
-                <a href="{{ route('about.create') }}" class="btn btn-md btn-success"><i class="fa-solid fa-plus mr-1"></i> Add New</a>
+                <a href="{{ route('about.create') }}" class="btn btn-md btn-outline-success"><i class="fa-solid fa-plus mr-1"></i> Add New</a>
             </div>
         </div>
         <div class="card-body">
             <div class="table-responsive">
-                <table class="table table-bordered table-collapse">
+                <table id="example1" class="table table-bordered table-striped">
                   <thead>
                     <tr>
                       <th style="width: 20px">Sl</th>
@@ -121,12 +121,12 @@
                            </div>
                         </td>
                         <td>
-                            <a href="{{ route('about.show', $about->slug) }}" class="btn btn-sm btn-success"><i class="fa-solid fa-eye"></i></a>
-                            <a href="{{ route('about.edit', $about->slug) }}" class="btn btn-sm btn-info"><i class="fa-solid fa-pen-to-square"></i></a>
+                            <a href="{{ route('about.show', $about->slug) }}" class="btn btn-sm btn-outline-success"><i class="fa-solid fa-eye"></i></a>
+                            <a href="{{ route('about.edit', $about->slug) }}" class="btn btn-sm btn-outline-info"><i class="fa-solid fa-pen-to-square"></i></a>
                             <form class="d-inline-block" action="{{ route('about.destroy', $about->slug) }}" method="POST">
                               @csrf
                               @method('DELETE')
-                              <button type="submit" class="btn btn-sm btn-danger show_confirm" data-toggle="tooltip" title='Delete'><i class="fa-solid fa-trash"></i></button>
+                              <button type="submit" class="btn btn-sm btn-outline-danger show_confirm" data-toggle="tooltip" title='Delete'><i class="fa-solid fa-trash"></i></button>
                             </form>
                         </td>
                     </tr>

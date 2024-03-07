@@ -5,7 +5,7 @@
         <div class="card-header">
             <div class="d-flex justify-content-between align-items-center">
                 <h3 class="fw-bolder">Add Service</h3>
-                <a href="{{ route('service.index') }}" class="btn btn-md btn-success"><i class="fa-solid fa-arrow-left mr-1"></i> Back</a>
+                <a href="{{ route('service.index') }}" class="btn btn-md btn-outline-success"><i class="fa-solid fa-arrow-left mr-1"></i> Back</a>
             </div>
             <div class="card-body">
                 <form action="{{ route('process.store') }}" method="POST" enctype="multipart/form-data">
@@ -14,7 +14,7 @@
                     <div class="mb-3">
                         <label for="sub-title" class="form-label">Select your service</label>
                         <select name="service_id" class="form-select form-control" aria-label="Default select example">
-                            <option>Select your service</option>
+                            <option value="">Select your service</option>
                             @foreach ($services as $service)
                             <option value="{{ $service->id }}">{{ $service->title }}</option>
                             @endforeach
@@ -46,8 +46,9 @@
                         @error('image')
                         <div id="emailHelp" class="form-text">{{ $message }}</div>
                         @enderror
+                        <img id="ImagePreview" style="border: 1px solid #ddd; padding:5px; width:100px; margin-top:10px" src="#" alt="">
                       </div>
-                    <button type="submit" class="btn btn-primary">Create</button>
+                    <button type="submit" class="btn btn-outline-primary">Create</button>
                 </form>
             </div>
         </div>
@@ -56,6 +57,22 @@
 
 @push('script')
 <script>
+    function readURL(input) {
+      if (input.files && input.files[0]) {
+        var reader = new FileReader();
+            
+        reader.onload = function (e) {
+        $('#ImagePreview').attr('src', e.target.result);
+        }
+            
+          reader.readAsDataURL(input.files[0]);
+        }
+    }
+    
+    $("#image").change(function(){
+        readURL(this);
+    });
+
     $('#description').summernote({
     placeholder: 'Enter a descripton for your new about section',
     tabsize: 2,

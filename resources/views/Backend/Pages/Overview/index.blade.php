@@ -11,7 +11,7 @@
         </div>
         <div class="card-body">
             <div class="table-responsive">
-                <table class="table table-bordered table-collapse">
+                <table id="example1" class="table table-bordered table-striped">
                   <thead>
                     <tr>
                       <th style="width: 20px">Sl</th>
@@ -33,7 +33,7 @@
                           </div>
                        </td>
                         <td>
-                            <a href="{{ route('overview.edit', $overview->slug) }}" class="btn btn-sm btn-info"><i class="fa-solid fa-pen-to-square"></i></a>
+                            <a href="{{ route('overview.edit', $overview->slug) }}" class="btn btn-sm btn-outline-info"><i class="fa-solid fa-pen-to-square"></i></a>
                         </td>
                     </tr>
                     @empty
